@@ -227,9 +227,9 @@ $CekRole = $cek_role -> jabatan;
 
         
 
-        $userDb = DB::table('surat_perintah_pengajuan_barang')->where('nomor_surat', $nomor_surat)
+        $userDb = DB::table('surat_perintah_pengajuan_barang')->where('nomor_surat', $nomor_surat)->delete();
         
-        ->delete(['nomor_surat' => $nomor_surat]);
+        
 
         return redirect()->action('PengajuanBarang@lihat_surat_perintah');
         
