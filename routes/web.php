@@ -39,10 +39,18 @@ Route::get('/sistem-pengajuan-barang/tu/dashboard',"PengajuanBarang@dashboard_tu
 
 
 Route::get('/sistem-pengajuan-barang/tu/input-surat-perintah',"PengajuanBarang@input_surat_perintah_tu");
+Route::post('/sistem-pengajuan-barang/tu/input-surat-perintah-tu-proses', "PengajuanBarang@input_surat_perintah_tu_proses");
+
+
 
 Route::get('/sistem-pengajuan-barang/tu/input-surat-perintah/lihat-surat-perintah',"PengajuanBarang@lihat_surat_perintah");
+Route::post('/sistem-pengajuan-barang/tu/edit-surat-perintah-tu-proses', "PengajuanBarang@edit_surat_perintah_tu_proses");
+Route::post('/sistem-pengajuan-barang/tu/hapus-surat-perintah-tu-proses', "PengajuanBarang@hapus_surat_perintah_tu_proses");
+
+
 
 Route::get('/sistem-pengajuan-barang/tu/input-surat-perintah/lihat-surat-perintah/lihat-detail-surat-perintah',"PengajuanBarang@lihat_detail_surat_perintah");
+
 
 
 
@@ -62,6 +70,8 @@ Route::get('/sistem-pengajuan-barang/tu/input-bast/lihat-bast/lihat-detail-bast'
 Route::get('/sistem-pengajuan-barang/tu/profile',"PengajuanBarang@profile_tu");
 
 Route::get('/sistem-pengajuan-barang/tu/setelan',"PengajuanBarang@setelan_tu");
+Route::post('/sistem-pengajuan-barang/tu/setelan-tu-proses', "PengajuanBarang@setelan_tu_proses");
+
 /*-------------------------------------------------------------------------*/
 
 

@@ -199,13 +199,14 @@
             </tr>
           </thead>
           <tbody>
+            @foreach($cek_list as $CekList) 
             <tr>
-              <td class="text-center">IX/2016/7882</td>
+              <td class="text-center">{{$CekList -> nomor_surat }}</td>
               <td class="text-center"><a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/input-surat-perintah/lihat-surat-perintah/lihat-detail-surat-perintah"><button class="btn btn-block danger">Lihat</button></td>
               
              
             </tr>
-            
+            @endforeach
            
           </tbody>
         </table>
@@ -213,6 +214,7 @@
     </div>
   </div>
   <button class="btn btn-block success" data-toggle="modal" data-target="#m-a-a" data-ui-toggle-class="bounce" data-ui-target="#animate">Edit</button>
+  <button class="btn btn-block warning" data-toggle="modal" data-target="#m-a-b" data-ui-toggle-class="bounce" data-ui-target="#animate">Hapus</button>
   </br>
 </div>
 
@@ -230,59 +232,67 @@
       	<h5 class="modal-title">Edit Surat Pengadaan Barang</h5>
       </div>
       <div class="modal-body text-center p-lg">
-       <form role="form">
+        <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengajuan-barang/tu/edit-surat-perintah-tu-proses')}}" method="post">
+        {{ csrf_field() }}
             <div class="form-group">
               <label for="exampleInputEmail1">Masukan nomor surat yang akan di edit</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="nomor surat" required="">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="nomor surat" required="" name="no_surat_pilihan">
             </div>
             <hr>
                 <div><p><b>Masukan data baru:</b></p></div>
             <hr>
+            
             <div class="form-group">
-              <label for="exampleInputEmail1">Masukan nomor surat</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor surat" required="">
+              <label for="exampleInputEmail1">No</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor surat baru" required="" name="nomor_surat">
             </div>
 
             <div class="form-group">
               <label for="exampleInputEmail1">No Peraturan Direksi</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor peraturan direksi"  required="">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor peraturan direksi"  required="" name="nomor_peraturan_direksi">
             </div>
 
             <div class="form-group">
               <label for="exampleInputEmail1">No Printlog</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor printlog" required="">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor printlog" required="" name="nomor_printlog">
             </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Kode Printlog</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar kode printlog" required="" name="kode_printlog">
+            </div>
+
             <div class="form-group">
               <label for="exampleInputEmail1">No Surat Keputusan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor dasar surat keputusan" required="">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor dasar surat keputusan" required="" name="nomor_surat_keputusan">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">No KJA</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor dasar KJA" required="">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor dasar KJA" required="" name="no_kja">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Kepada</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama penerima surat ini" required="">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama penerima surat ini" required="" name="kepada">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Untuk Mengangkut</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama/jenis barang yang akan di angkut" required="">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama/jenis barang yang akan di angkut" required="" name="untuk_mengangkut">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Dari</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama kota/daerah dimana barang berasal" required="">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama kota/daerah dimana barang berasal" required="" name="dari">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Tujuan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama kota/daerah dimana barang dikirim" required="">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama kota/daerah dimana barang dikirim" required="" name="tujuan">
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Alat Angkut</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama alat angkut yang akan digunakan" required="">
+              <label for="exampleInputEmail1">Alat Angkit</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama alat angkut yang akan digunakan" required="" name="alat_angkut">
             </div>
             <div class="form-group">
                <label for="exampleInputEmail1">Keterangan (jika ada)</label>
-               <textarea class="form-control" rows="2"></textarea>
+               <textarea class="form-control" rows="2" name="keterangan"></textarea>
             </div>
         
       </div>
@@ -295,6 +305,34 @@
   </div>
 </div>
 <!-- / .modal -->
+
+
+<!-- .modal -->
+<div id="m-a-b" class="modal fade animate" data-backdrop="true">
+  <div class="modal-dialog" id="animate">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<h5 class="modal-title">Hapus Surat Perintah</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+       <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengajuan-barang/tu/hapus-surat-perintah-tu-proses')}}" method="post">
+        {{ csrf_field() }}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Masukan nomor surat yang akan hapus</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="nomor surat" required="" name="nomor_surat">
+            </div>
+            
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn warning m-b" data-dismiss="modal" style="color:white;">No</button>
+        <button type="submit" class="btn success m-b">Hapus</button>
+        </form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+<!-- / .modal -->
+
 
 
 

@@ -46,6 +46,7 @@ class Bella extends Migration
             $table->string('alat_angkut', 100)->nullable();
             $table->string('nama_penginput', 100)->nullable();
             $table->string('nik_penginput', 100)->nullable();
+            $table->string('keterangan', 1000)->nullable();
 
 
            
@@ -107,6 +108,10 @@ class Bella extends Migration
      */
     public function down()
     {
+        Schema::drop('users_pengajuan_barang');
+        Schema::drop('surat_perintah_pengajuan_barang');
+        Schema::drop('printlog_pengajuan_barang');
+        Schema::drop('bast_pengajuan_barang');
         //
     }
 }
