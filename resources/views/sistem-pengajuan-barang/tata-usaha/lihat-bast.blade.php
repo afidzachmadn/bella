@@ -185,7 +185,7 @@
 <div class="col-sm-12">
       <div class="box">
         <div class="box-header">
-          <h2>List PrintBAST</h2>
+          <h2>List Berita Acara Serah Terima</h2>
           <small>
             Berikut adalah list BAST pengadaan barang yang telah anda inputkan, untuk mengeditnya silahkan klik tombol edit yang ada di bawah tabel.
           </small>
@@ -193,19 +193,26 @@
         <table class="table table-striped b-t">
           <thead>
             <tr>
-              <th class="text-center">Nomor BAST</th>
-              <th class="text-center">Lihat BAST</th>
+              <th class="text-center">Nomor Surat</th>
+              <th class="text-center">Lihat Surat</th>
               
             </tr>
           </thead>
           <tbody>
+            @foreach($cek_list as $CekList) 
             <tr>
-              <td class="text-center">IX/2016/7882</td>
-              <td class="text-center"><a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/input-bast/lihat-bast/lihat-detail-bast"><button class="btn btn-block danger">Lihat</button></td>
               
+
+              <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengajuan-barang/tu/lihat-detail-bast-tu-proses')}}" method="post">
+              {{ csrf_field() }}
+              <td>
+              <p class="text-center">{{$CekList -> nomor}}</p>
+              <input style="visibility:hidden" type="text" class="form-control text-center" id="exampleInputEmail1" required="" name="nomor" value="{{$CekList -> nomor }}"></td>
+              <td class="text-center"><button type="submit" class="btn btn-block danger">Lihat</button></td>
+              </form>
              
             </tr>
-            
+            @endforeach
            
           </tbody>
         </table>
@@ -213,6 +220,7 @@
     </div>
   </div>
   <button class="btn btn-block success" data-toggle="modal" data-target="#m-a-a" data-ui-toggle-class="bounce" data-ui-target="#animate">Edit</button>
+  <button class="btn btn-block warning" data-toggle="modal" data-target="#m-a-b" data-ui-toggle-class="bounce" data-ui-target="#animate">Hapus</button>
   </br>
 </div>
 
@@ -230,97 +238,90 @@
       	<h5 class="modal-title">Edit BAST</h5>
       </div>
       <div class="modal-body text-center p-lg">
-       <form role="form">
+        <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengajuan-barang/tu/edit-bast-tu-proses')}}" method="post">
+        {{ csrf_field() }}
             <div class="form-group">
-                    <p>Tanggal Printlog:</p>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="datepicker-autoclose" placeholder="tahun/bulan/hari" name="dari_tanggal" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
-                    </div>
+              <label for="exampleInputEmail1">Nomor BAST</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="nomor bast yang akan di edit" required="" name="no_pilihan">
             </div>
-
+            <hr>
+                <div><p><b>Masukan data baru:</b></p></div>
+            <hr>
+            
             <div class="form-group">
               <label for="exampleInputEmail1">No BAST</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor peraturan direksi"  required="">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor bast baru"  required="" name="nomor">
             </div>
 
             <div class="form-group">
                     <p>Tanggal BAST:</p>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="datepicker-autoclose" placeholder="tahun/bulan/hari" name="dari_tanggal" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                        <input type="text" class="form-control" id="datepicker-autoclose" placeholder="tahun/bulan/hari" name="hari_tanggal" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
                     </div>
             </div>
 
             <div class="form-group">
               <label for="exampleInputEmail1">Pihak Pertama</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor peraturan direksi"  required="">
+              <input name="pihak_pertama" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama pihak pertama"  required="">
             </div>
 
             <div class="form-group">
               <label for="exampleInputEmail1">Jabatan Pihak Pertama</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="printlog ini ditujukan untuk" required="">
+              <input name="jabatan_pihak_pertama" type="text" class="form-control" id="exampleInputEmail1" placeholder="jabatan pihak pertama" required="">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Pihak Kedua</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan asal berita acara" required="">
+              <input name="pihak_kedua" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama pihak kedua" required="">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Jabatan Pihak Kedua</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="tujuan printlog ini" required="">
+              <input name="jabatan_pihak_kedua" type="text" class="form-control" id="exampleInputEmail1" placeholder="jabatan pihak kedua" required="">
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Jumlah Lembar</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Jumlah lembar printlog" required="">
+              <label for="exampleInputEmail1">No faximile BULOG</label>
+              <input name="faximile_bulog" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor faximile bulog" required="">
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Tambahan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="ketikan tambahan lain jika ada" required="">
+                    <p>Tanggal Faximile BULOG:</p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="datepicker-autoclose2" placeholder="tahun/bulan/hari" name="tanggal_faximile_bulog" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                    </div>
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Kode Printlog</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan kode printlog" required="">
-            </div>
-             <div class="form-group">
-               <label for="exampleInputEmail1">Keterangan (jika ada)</label>
-               <textarea class="form-control" rows="2"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Pengirim</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama pengirim" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Penerima</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama penerima" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Kuantum</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="kuantum barang yang akan dikirim" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Barang</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama barang" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Jenis Barang</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan jenis barang" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Masukan Jumlah Barang</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan jenis barang" required="">
-            </div>
-            <div class="form-group">
-               <label for="exampleInputEmail1">Keterangan (jika ada)</label>
-               <textarea class="form-control" rows="2"></textarea>
-            </div>
-             <div class="form-group">
-              <label for="exampleInputEmail1">Tembusan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="tembusan dari" required="">
+              <label for="exampleInputEmail1">Perihal</label>
+              <input name="perihal" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan perihal" required="">
             </div>
             
             <div class="form-group">
-                    <p>Printlog ini Berlaku Sampai:</p>
+              <label for="exampleInputEmail1">Keterangan</label>
+              <input name="keterangan_1" type="text" class="form-control" id="exampleInputEmail1" placeholder="keterangan" required="">
+            </div>
+             
+            <div class="form-group">
+              <label for="exampleInputEmail1">Jenis Barang</label>
+              <input name="jenis_barang" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan jenis barang yang akan dikirim" required="">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Jumlah Kuantum</label>
+              <input name="jumlah_kuantum" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan jumlah kuantum barang yang akan dikirim" required="">
+            </div>
+            <div class="form-group">
+                    <p>Tanggal Penyerahan:</p>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="datepicker-autoclose" placeholder="tahun/bulan/hari" name="dari_tanggal" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                        <input type="text" class="form-control" id="datepicker-autoclose3" placeholder="tahun/bulan/hari" name="tanggal_penyerahan" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
                     </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Alat Angkut</label>
+              <input name="alat_angkut" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama alat angkut barang" required="">
+            </div>
+             <div class="form-group">
+              <label for="exampleInputEmail1">Keterangan</label>
+              <input name="keterangan_2" type="text" class="form-control" id="exampleInputEmail1" placeholder="keterangan" required="">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nama Wakil</label>
+              <input name="nama_wakil" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama wakil / orang yang bertanggung jawab di Subdirve Wilayah I Semarang" required="">
             </div>
         
       </div>
@@ -333,6 +334,34 @@
   </div>
 </div>
 <!-- / .modal -->
+
+
+<!-- .modal -->
+<div id="m-a-b" class="modal fade animate" data-backdrop="true">
+  <div class="modal-dialog" id="animate">
+    <div class="modal-content">
+      <div class="modal-header">
+      	<h5 class="modal-title">Hapus BAST</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+       <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengajuan-barang/tu/hapus-bast-tu-proses')}}" method="post">
+        {{ csrf_field() }}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Masukan nomor bast yang akan di hapus</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="nomor BAST" required="" name="nomor_bast">
+            </div>
+            
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn warning m-b" data-dismiss="modal" style="color:white;">No</button>
+        <button type="submit" class="btn success m-b">Hapus</button>
+        </form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div>
+</div>
+<!-- / .modal -->
+
 
 
 

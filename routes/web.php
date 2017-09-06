@@ -35,6 +35,8 @@ Route::get('/sistem-pengajuan-barang/logout',"LoginPengajuanBarang@logout");
 /*---------------------------- TATA USAHA -----------------------------*/
 
 
+
+//-----surat perintah------//
 Route::get('/sistem-pengajuan-barang/tu/dashboard',"PengajuanBarang@dashboard_tu");
 
 
@@ -46,6 +48,7 @@ Route::post('/sistem-pengajuan-barang/tu/input-surat-perintah-tu-proses', "Penga
 Route::get('/sistem-pengajuan-barang/tu/input-surat-perintah/lihat-surat-perintah',"PengajuanBarang@lihat_surat_perintah");
 Route::post('/sistem-pengajuan-barang/tu/edit-surat-perintah-tu-proses', "PengajuanBarang@edit_surat_perintah_tu_proses");
 Route::post('/sistem-pengajuan-barang/tu/hapus-surat-perintah-tu-proses', "PengajuanBarang@hapus_surat_perintah_tu_proses");
+Route::post('/sistem-pengajuan-barang/tu/lihat-detail-surat-perintah-tu-proses', "PengajuanBarang@lihat_detail_surat_perintah_tu_proses");
 
 
 
@@ -54,19 +57,32 @@ Route::get('/sistem-pengajuan-barang/tu/input-surat-perintah/lihat-surat-perinta
 
 
 
+
+//-----printlog-----//
 Route::get('/sistem-pengajuan-barang/tu/input-print-log',"PengajuanBarang@input_printlog_tu");
+Route::post('/sistem-pengajuan-barang/tu/input-printlog-tu-proses', "PengajuanBarang@input_printlog_tu_proses");
+
 Route::get('/sistem-pengajuan-barang/tu/input-print-log/lihat-printlog',"PengajuanBarang@lihat_printlog");
-Route::get('/sistem-pengajuan-barang/tu/input-print-log/lihat-printlog/lihat-detail-printlog',"PengajuanBarang@lihat_detail_printlog");
+Route::post('/sistem-pengajuan-barang/tu/edit-printlog-tu-proses', "PengajuanBarang@edit_printlog_tu_proses");
+Route::post('/sistem-pengajuan-barang/tu/hapus-printlog-tu-proses', "PengajuanBarang@hapus_printlog_tu_proses");
+Route::post('/sistem-pengajuan-barang/tu/lihat-detail-printlog-tu-proses',"PengajuanBarang@lihat_detail_printlog_tu_proses");
 
 
+
+//-----bast---------//
 Route::get('/sistem-pengajuan-barang/tu/input-bast',"PengajuanBarang@input_bast_tu");
+Route::post('/sistem-pengajuan-barang/tu/input-bast-tu-proses', "PengajuanBarang@input_bast_tu_proses");
+
 Route::get('/sistem-pengajuan-barang/tu/input-bast/lihat-bast',"PengajuanBarang@lihat_bast");
-Route::get('/sistem-pengajuan-barang/tu/input-bast/lihat-bast/lihat-detail-bast',"PengajuanBarang@lihat_detail_bast");
+Route::post('/sistem-pengajuan-barang/tu/edit-bast-tu-proses', "PengajuanBarang@edit_bast_tu_proses");
+Route::post('/sistem-pengajuan-barang/tu/hapus-bast-tu-proses', "PengajuanBarang@hapus_bast_tu_proses");
+Route::post('/sistem-pengajuan-barang/tu/lihat-detail-bast-tu-proses',"PengajuanBarang@lihat_detail_bast_tu_proses");
 
 
 
 
 
+//-----profile-----//
 Route::get('/sistem-pengajuan-barang/tu/profile',"PengajuanBarang@profile_tu");
 
 Route::get('/sistem-pengajuan-barang/tu/setelan',"PengajuanBarang@setelan_tu");
@@ -82,21 +98,14 @@ Route::post('/sistem-pengajuan-barang/tu/setelan-tu-proses', "PengajuanBarang@se
 
 /*---------------------------- Kepala Cabang -----------------------------*/
 
+//-----surat perintah------//
 Route::get('/sistem-pengajuan-barang/kepala-cabang/dashboard',"PengajuanBarang@dashboard_kepala_cabang");
 
-Route::get('/sistem-pengajuan-barang/kepala-cabang/profile',"PengajuanBarang@profile_kepala_cabang");
-
-Route::get('/sistem-pengajuan-barang/kepala-cabang/setelan',"PengajuanBarang@setelan_kepala_cabang");
-
-
 Route::get('/sistem-pengajuan-barang/kepala-cabang/lihat-surat-perintah',"PengajuanBarang@lihat_surat_perintah_kepala_cabang");
-Route::get('/sistem-pengajuan-barang/kepala-cabang/lihat-surat-perintah/lihat-detail-surat-perintah',"PengajuanBarang@lihat_detail_surat_perintah_kepala_cabang");
 
-Route::get('/sistem-pengajuan-barang/kepala-cabang/lihat-printlog',"PengajuanBarang@lihat_print_log_kepala_cabang");
-Route::get('/sistem-pengajuan-barang/kepala-cabang/lihat-printlog/lihat-detail-printlog',"PengajuanBarang@lihat_detail_print_log_kepala_cabang");
+Route::post('/sistem-pengajuan-barang/kepala-cabang/lihat-detail-surat-perintah-kepala-cabang-proses', "PengajuanBarang@lihat_detail_surat_perintah_kepala_cabang_proses");
 
-Route::get('/sistem-pengajuan-barang/kepala-cabang/lihat-bast',"PengajuanBarang@lihat_bast_kepala_cabang");
-Route::get('/sistem-pengajuan-barang/kepala-cabang/lihat-bast/lihat-detail-bast',"PengajuanBarang@lihat_detail_bast_kepala_cabang");
+
 
 
 /*-------------------------------------------------------------------------*/

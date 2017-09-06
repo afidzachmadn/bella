@@ -201,9 +201,15 @@
           <tbody>
             @foreach($cek_list as $CekList) 
             <tr>
-              <td class="text-center">{{$CekList -> nomor_surat }}</td>
-              <td class="text-center"><a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/input-surat-perintah/lihat-surat-perintah/lihat-detail-surat-perintah"><button class="btn btn-block danger">Lihat</button></td>
               
+
+              <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengajuan-barang/tu/lihat-detail-surat-perintah-tu-proses')}}" method="post">
+              {{ csrf_field() }}
+              <td>
+              <p class="text-center">{{$CekList -> nomor_surat}}</p>
+              <input style="visibility:hidden" type="text" class="form-control text-center" id="exampleInputEmail1" required="" name="nomor_surat" value="{{$CekList -> nomor_surat }}"></td>
+              <td class="text-center"><button type="submit" class="btn btn-block danger">Lihat</button></td>
+              </form>
              
             </tr>
             @endforeach

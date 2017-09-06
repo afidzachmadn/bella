@@ -186,7 +186,7 @@
 <div class="padding">
   <div class="p-y-lg clearfix">
     <div class="text-center">
-      <h2 class="_700 m-b">Howdy, Bella!</h2>
+      <h2 class="_700 m-b">Howdy, {{$nama}}</h2>
       <h5 class="m-b-md">Berikut adalah ringkasan kerjamu</h5>
     </div>
   </div>
@@ -199,7 +199,7 @@
               <div class="box-body text-center r-t primary">
                 <h6 class="text-u-c p-v-sm m-a-0 m-t">Surat Perintah</h6>
                 <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">12</span>
+                  <span class="text-2x">{{$jum_surat_perintah}}</span>
                 </h3>
               </div>
               <ul class="list b-t b-b m-a-0 no-radius">
@@ -220,7 +220,7 @@
               <div class="box-body text-center r-t success">
                 <h6 class="text-u-c m-a-0 m-t">Print-log</h6>
                 <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">9</span>
+                  <span class="text-2x">{{$jum_printlog}}</span>
                 </h3>
               </div>
               <ul class="list b-t b-b m-a-0 no-radius">
@@ -241,7 +241,7 @@
               <div class="box-body text-center r-t danger">
                 <h6 class="text-u-c m-a-0 m-t">BAST</h6>
                 <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">7</span>
+                  <span class="text-2x">{{$jum_bast}}</span>
                 </h3>
               </div>
               <ul class="list b-t b-b m-a-0 no-radius">

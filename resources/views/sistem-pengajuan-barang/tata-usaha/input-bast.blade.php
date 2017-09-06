@@ -31,6 +31,19 @@
   <!-- endbuild -->
 	<link rel="stylesheet" href="{{env('APP_URL')}}/css/styles/font.css" type="text/css" />
 	<link rel="stylesheet" type="text/css" href="{{env('APP_URL')}}/css/theme/accent.css">
+  <!-- Page plugins css -->
+  <link href="{{env('APP_URL')}}/plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.css" rel="stylesheet">
+
+  <!-- Color picker plugins css -->
+  <link href="{{env('APP_URL')}}/plugins/bower_components/jquery-asColorPicker-master/css/asColorPicker.css" rel="stylesheet">
+
+  <!-- Date picker plugins css -->
+  <link href="{{env('APP_URL')}}/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+
+  <!-- Daterange picker plugins css -->
+  <link href="{{env('APP_URL')}}/plugins/bower_components/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+  <link href="{{env('APP_URL')}}/plugins/bower_components/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+</head>
 </head>
 <body>
   <div class="app" id="app">
@@ -189,72 +202,84 @@
         </div>
         <div class="box-divider m-a-0"></div>
         <div class="box-body">
-          <form role="form">
+          <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengajuan-barang/tu/input-bast-tu-proses')}}" method="post">
+        {{ csrf_field() }}
 
 
             <div class="form-group">
               <label for="exampleInputEmail1">No BAST</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor bast"  required="">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor bast"  required="" name="nomor">
             </div>
 
             <div class="form-group">
                     <p>Tanggal BAST:</p>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="datepicker-autoclose" placeholder="tahun/bulan/hari" name="dari_tanggal" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                        <input type="text" class="form-control" id="datepicker-autoclose" placeholder="tahun/bulan/hari" name="hari_tanggal" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
                     </div>
             </div>
 
             <div class="form-group">
               <label for="exampleInputEmail1">Pihak Pertama</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama pihak pertama"  required="">
+              <input name="pihak_pertama" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama pihak pertama"  required="">
             </div>
 
             <div class="form-group">
               <label for="exampleInputEmail1">Jabatan Pihak Pertama</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="jabatan pihak pertama" required="">
+              <input name="jabatan_pihak_pertama" type="text" class="form-control" id="exampleInputEmail1" placeholder="jabatan pihak pertama" required="">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Pihak Kedua</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama pihak kedua" required="">
+              <input name="pihak_kedua" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama pihak kedua" required="">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Jabatan Pihak Kedua</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="jabatan pihak kedua" required="">
+              <input name="jabatan_pihak_kedua" type="text" class="form-control" id="exampleInputEmail1" placeholder="jabatan pihak kedua" required="">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">No faximile BULOG</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor faximile bulog" required="">
+              <input name="faximile_bulog" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor faximile bulog" required="">
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Tanggal faximile BULOG</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan tanggal faximile bulog" required="">
+                    <p>Tanggal Faximile BULOG:</p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="datepicker-autoclose2" placeholder="tahun/bulan/hari" name="tanggal_faximile_bulog" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                    </div>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Perihal</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan perihal" required="">
+              <input name="perihal" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan perihal" required="">
+            </div>
+            
+            <div class="form-group">
+              <label for="exampleInputEmail1">Keterangan</label>
+              <input name="keterangan_1" type="text" class="form-control" id="exampleInputEmail1" placeholder="keterangan" required="">
             </div>
              
             <div class="form-group">
               <label for="exampleInputEmail1">Jenis Barang</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan jenis barang yang akan dikirim" required="">
+              <input name="jenis_barang" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan jenis barang yang akan dikirim" required="">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Jumlah Kuantum</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan jumlah kuantum barang yang akan dikirim" required="">
+              <input name="jumlah_kuantum" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan jumlah kuantum barang yang akan dikirim" required="">
             </div>
             <div class="form-group">
                     <p>Tanggal Penyerahan:</p>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="datepicker-autoclose" placeholder="tahun/bulan/hari" name="dari_tanggal" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                        <input type="text" class="form-control" id="datepicker-autoclose3" placeholder="tahun/bulan/hari" name="tanggal_penyerahan" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
                     </div>
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Alat Angkut</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama alat angkut barang" required="">
+              <input name="alat_angkut" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama alat angkut barang" required="">
+            </div>
+             <div class="form-group">
+              <label for="exampleInputEmail1">Keterangan</label>
+              <input name="keterangan_2" type="text" class="form-control" id="exampleInputEmail1" placeholder="keterangan" required="">
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Nama Wakil</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama wakil / orang yang bertanggung jawab di Subdirve Wilayah I Semarang" required="">
+              <input name="nama_wakil" type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama wakil / orang yang bertanggung jawab di Subdirve Wilayah I Semarang" required="">
             </div>
             
            
@@ -265,7 +290,7 @@
         
       </div>
       <div class="col-sm-12">
-         <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/input-bast/lihat-bast"><button class="btn btn-block danger">Lihat printlog</button></a>
+         <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/input-bast/lihat-bast"><button class="btn btn-block danger">Lihat BAST</button></a>
       </div>
      
         </br>
@@ -328,5 +353,98 @@
  <!-- <script src="scripts/app.js"></script> -->
   <script src="{{env('APP_URL')}}/scripts/ajax.js"></script>
 <!-- endbuild -->
+<!-- Plugin JavaScript -->
+<script src="{{env('APP_URL')}}/plugins/bower_components/moment/moment.js"></script>
+<!-- Clock Plugin JavaScript -->
+<script src="{{env('APP_URL')}}/plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.js"></script>
+<!-- Color Picker Plugin JavaScript -->
+<script src="{{env('APP_URL')}}/plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
+<script src="{{env('APP_URL')}}/plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
+<script src="{{env('APP_URL')}}/plugins/bower_components/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
+<!-- Date Picker Plugin JavaScript -->
+<script src="{{env('APP_URL')}}/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<!-- Date range Plugin JavaScript -->
+<script src="{{env('APP_URL')}}/plugins/bower_components/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="{{env('APP_URL')}}/plugins/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script>
+        // Clock pickers
+        $('#single-input').clockpicker({
+            placement: 'bottom'
+            , align: 'left'
+            , autoclose: true
+            , 'default': 'now'
+        });
+        $('.clockpicker').clockpicker({
+            donetext: 'Done'
+        , }).find('input').change(function () {
+            console.log(this.value);
+        });
+        $('#check-minutes').click(function (e) {
+            // Have to stop propagation here
+            e.stopPropagation();
+            input.clockpicker('show').clockpicker('toggleView', 'minutes');
+        });
+        if (/mobile/i.test(navigator.userAgent)) {
+            $('input').prop('readOnly', false);
+        }
+        // Colorpicker
+        $(".colorpicker").asColorPicker();
+        $(".complex-colorpicker").asColorPicker({
+            mode: 'complex'
+        });
+        $(".gradient-colorpicker").asColorPicker({
+            mode: 'gradient'
+        });
+        // Date Picker
+        jQuery('.mydatepicker, #datepicker').datepicker();
+        jQuery('#datepicker-autoclose').datepicker({
+            format: 'yyyy/mm/dd'
+            ,autoclose: true
+            , todayHighlight: true
+        });
+        jQuery('#datepicker-autoclose2').datepicker({
+            format: 'yyyy/mm/dd'
+            ,autoclose: true
+            , todayHighlight: true
+        });
+        jQuery('#datepicker-autoclose3').datepicker({
+            format: 'yyyy/mm/dd'
+            ,autoclose: true
+            , todayHighlight: true
+        });
+        jQuery('#date-range').datepicker({
+            toggleActive: true
+        });
+        jQuery('#datepicker-inline').datepicker({
+            todayHighlight: true
+        });
+        // Daterange picker
+        $('.input-daterange-datepicker').daterangepicker({
+            buttonClasses: ['btn', 'btn-sm']
+            , applyClass: 'btn-danger'
+            , cancelClass: 'btn-inverse'
+        });
+        $('.input-daterange-timepicker').daterangepicker({
+            timePicker: true
+            , format: 'DD/MM/YYYY h:mm A'
+            , timePickerIncrement: 30
+            , timePicker12Hour: true
+            , timePickerSeconds: false
+            , buttonClasses: ['btn', 'btn-sm']
+            , applyClass: 'btn-danger'
+            , cancelClass: 'btn-inverse'
+        });
+        $('.input-limit-datepicker').daterangepicker({
+            format: 'DD/MM/YYYY'
+            , minDate: '01/06/2015'
+            , maxDate: '30/06/2015'
+            , buttonClasses: ['btn', 'btn-sm']
+            , applyClass: 'btn-danger'
+            , cancelClass: 'btn-inverse'
+            , dateLimit: {
+                days: 6
+            }
+        });
+</script>
 </body>
 </html>

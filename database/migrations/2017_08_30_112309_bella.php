@@ -92,6 +92,7 @@ class Bella extends Migration
             $table->date('tanggal_penyerahan')->nullable();
             $table->string('alat_angkut', 100)->nullable();
             $table->string('keterangan_2', 100)->nullable();
+            $table->string('nama_wakil', 100)->nullable();
             $table->string('nama_penginput', 100)->nullable();
             $table->string('nik_penginput', 100)->nullable();
             
