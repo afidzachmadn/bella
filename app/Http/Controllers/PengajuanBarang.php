@@ -1005,6 +1005,334 @@ else{
 
 }
 
+//------surat perintah------//
+public function lihat_surat_perintah_kepala_cabang(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+if($cek_role == null){
+    return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+$CekRole = $cek_role -> jabatan;
+   
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'Kepala Cabang' || $request->session()->get('login') && $CekRole == 'kepala cabang' ) {
+        $nik = $cek_role -> nik;
+        $cek_list = DB::table('surat_perintah_pengajuan_barang')->where([['nik_penginput', '!=', null],]) -> get();
+
+        //dd($cek_list);
+
+        return view('sistem-pengajuan-barang.kepala-cabang.lihat-surat-perintah', array('cek_list' => $cek_list));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+
+}
+
+public function lihat_detail_surat_perintah_kepala_cabang_proses(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    
+if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+    $CekRole = $cek_role -> jabatan;
+   
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'kepala cabang' || $request->session()->get('login') && $CekRole == 'Kepala Cabang' ) {
+
+        $nomor_surat = $request->get('nomor_surat');
+
+        $userDb = DB::table('surat_perintah_pengajuan_barang')->where('nomor_surat', $nomor_surat)->get();
+
+        $isi = $userDb[0];
+
+
+        return view('sistem-pengajuan-barang.kepala-cabang.lihat-detail-surat-perintah',array('isi' => $isi));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+
+}
+
+//-------printlog---------//
+public function lihat_printlog_kepala_cabang(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+
+if($cek_role == null){
+    return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+$CekRole = $cek_role -> jabatan;
+   
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'Kepala Cabang' || $request->session()->get('login') && $CekRole == 'kepala cabang' ) {
+        $nik = $cek_role -> nik;
+        $cek_list = DB::table('printlog_pengajuan_barang')->where([['nik_penginput','!=',null],]) -> get();
+
+        return view('sistem-pengajuan-barang.kepala-cabang.lihat-printlog', array('cek_list' => $cek_list));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+
+}
+
+public function lihat_detail_printlog_kepala_cabang_proses(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+
+if($cek_role == null){
+    return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+$CekRole = $cek_role -> jabatan;
+   
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'kepala cabang' || $request->session()->get('login') && $CekRole == 'Kepala Cabang' ) {
+
+        $nomor = $request->get('nomor');
+        
+        $userDb = DB::table('printlog_pengajuan_barang')->where([['nomor','!=',null],])->get();
+        
+        $isi = $userDb[0];
+        
+        
+       
+
+        return view('sistem-pengajuan-barang.kepala-cabang.lihat-detail-printlog',array('isi' => $isi));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+
+}
+
+
+//---------bast----------//
+public function lihat_bast_kepala_cabang(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+
+if($cek_role == null){
+    
+    return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+$CekRole = $cek_role -> jabatan;
+   
+
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'kepala cabang' || $request->session()->get('login') && $CekRole == 'Kepala Cabang' ) {
+
+        $nik = $cek_role -> nik;
+        $cek_list = DB::table('bast_pengajuan_barang')->where([['nik_penginput','!=',null],]) -> get();
+
+        return view('sistem-pengajuan-barang.kepala-cabang.lihat-bast', array('cek_list' => $cek_list));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+}
+
+public function lihat_detail_bast_kepala_cabang_proses(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+
+if($cek_role == null){
+    return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+$CekRole = $cek_role -> jabatan;
+   
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'kepala cabang' || $request->session()->get('login') && $CekRole == 'Kepala Cabang' ) {
+
+        $nomor = $request->get('nomor');
+        
+        $userDb = DB::table('bast_pengajuan_barang')->where([['nomor', $nomor],])->get();
+        
+        $isi = $userDb[0];
+        
+        
+       
+
+        return view('sistem-pengajuan-barang.kepala-cabang.lihat-detail-bast',array('isi' => $isi));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+
+}
+
+//-----profile------//
+public function profile_kepala_cabang(Request $request) {
+    
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    
+    if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
+    }
+    
+    else{
+    $CekRole = $cek_role -> jabatan;
+       
+        
+        
+    
+        if($request->session()->get('login') && $CekRole == 'Kepala Cababf' || $request->session()->get('login') && $CekRole == 'kepala cabang' ) {
+                
+                $id = $request->session()->get('id');
+            
+                $LihatProfile = DB::table('users_pengajuan_barang');
+                        
+                $LihatProfileNext = $LihatProfile->where('id', $id)->first();
+    
+                return view('sistem-pengajuan-barang.kepala-cabang.profile', array('profile' => $LihatProfileNext));
+            
+        } 
+        
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
+
+}
+
+public function setelan_kepala_cabang(Request $request) {
+    
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    
+    if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
+    }
+    
+    else{
+    $CekRole = $cek_role -> jabatan;
+       
+        
+        
+    
+        if($request->session()->get('login') && $CekRole == 'kepala cabang' || $request->session()->get('login') && $CekRole == 'Kepala Cabang' ) {
+
+            $id = $request->session()->get('id');
+            
+            $LihatProfile = DB::table('users_pengajuan_barang');
+                        
+            $LihatProfileNext = $LihatProfile->where('id', $id)->first();
+    
+            return view('sistem-pengajuan-barang.kepala-cabang.setelan', array('profile' => $LihatProfileNext));
+            
+        } 
+        
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
+
+}
+
+
+
+
+public function setelan_kepala_cabang_proses(Request $request) {
+    
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    
+    if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
+    }
+    
+    else{
+    $CekRole = $cek_role -> jabatan;
+       
+        
+        
+    
+        if($request->session()->get('login') && $CekRole == 'kepala cabang' || $request->session()->get('login') && $CekRole == 'Kepala Cabang' ) {
+    
+
+            $nama = $request->get('nama');
+            $nik = $request->get('nik');
+            $email = $request->get('email');
+            $no_hp = $request->get('no_hp');
+            $bagian = $request->get('bagian');
+            $jabatan = $request->get('jabatan');
+    
+            $file = $request->file('img');
+            //dd($file);
+            $fileName = $file->hashName();
+            $storeFile = $file->store('public/foto');
+    
+            $userDb = DB::table('users_pengajuan_barang')->where('id', $id)
+            
+                                        ->update(['nama' => $nama, 'nik' => $nik, 'email' => $email, 'no_hp' => $no_hp, 'bagian' => $bagian, 'jabatan' => $jabatan, 'img_url' => $fileName]);
+            //dd($userDb);
+            //dd($userDb);
+            $request->session()->put('img_url', $fileName);
+
+
+            return redirect()->action('PengajuanBarang@profile_kepala_cabang');
+            
+        } 
+        
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
+
+}
+
+
 
 /*--------------------------------------------------------------------------------*/
 
@@ -1025,76 +1353,364 @@ else{
 /*--------------------------- KORLAP --------------------------------------*/
 
 public function dashboard_korlap(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+if($cek_role == null){
+    return redirect()->action('LoginPengajuanBarang@login');
+}
+else{
+    
+    $CekRole = $cek_role -> jabatan;
+   
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'koordinasi lapangan' || $request->session()->get('login') && $CekRole == 'Koordinasi Lapangan' ) {
+        $get_nama = $cek_role -> nama;
+        $get_nik = $cek_role -> nik;
+
+        $hitung_printlog = DB::table('printlog_pengajuan_barang')->where([['nik_penginput','!=',null],])->count();
+        $hitung_surat_perintah = DB::table('surat_perintah_pengajuan_barang')->where([['nik_penginput','!=',null],])->count();
+        $hitung_bast = DB::table('bast_pengajuan_barang')->where([['nik_penginput','!=',null],])->count();
         
-            return view('sistem-pengajuan-barang.korlap.dashboard');
+        return view('sistem-pengajuan-barang.korlap.dashboard', array('nama' => $get_nama,'jum_printlog' => $hitung_printlog, 'jum_surat_perintah' => $hitung_surat_perintah, 'jum_bast' => $hitung_bast));
+        
+    } 
     
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+
+}
+
+//------surat perintah------//
+public function lihat_surat_perintah_korlap(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+if($cek_role == null){
+    return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+$CekRole = $cek_role -> jabatan;
+   
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'koordinasi lapangan' || $request->session()->get('login') && $CekRole == 'Koordinasi Lapangan' ) {
+        $nik = $cek_role -> nik;
+        $cek_list = DB::table('surat_perintah_pengajuan_barang')->where([['nik_penginput', '!=', null],]) -> get();
+
+        //dd($cek_list);
+
+        return view('sistem-pengajuan-barang.korlap.lihat-surat-perintah', array('cek_list' => $cek_list));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+
+}
+
+public function lihat_detail_surat_korlap_cabang_proses(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    
+if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+    $CekRole = $cek_role -> jabatan;
+   
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'koordinasi lapangan' || $request->session()->get('login') && $CekRole == 'Koordinasi Lapangan' ) {
+
+        $nomor_surat = $request->get('nomor_surat');
+
+        $userDb = DB::table('surat_perintah_pengajuan_barang')->where('nomor_surat', $nomor_surat)->get();
+
+        $isi = $userDb[0];
+
+
+        return view('sistem-pengajuan-barang.korlap.lihat-detail-surat-perintah',array('isi' => $isi));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+
+}
+
+//-------printlog---------//
+public function lihat_printlog_korlap(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+
+if($cek_role == null){
+    return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+$CekRole = $cek_role -> jabatan;
+   
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'Koordinasi Lapangan' || $request->session()->get('login') && $CekRole == 'koordinasi lapangan' ) {
+        $nik = $cek_role -> nik;
+        $cek_list = DB::table('printlog_pengajuan_barang')->where([['nik_penginput','!=',null],]) -> get();
+
+        return view('sistem-pengajuan-barang.korlap.lihat-printlog', array('cek_list' => $cek_list));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+
+}
+
+public function lihat_detail_korlap_kepala_cabang_proses(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+
+if($cek_role == null){
+    return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+$CekRole = $cek_role -> jabatan;
+   
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'koordinasi lapangan' || $request->session()->get('login') && $CekRole == 'Koordinasi Lapangan' ) {
+
+        $nomor = $request->get('nomor');
+        
+        $userDb = DB::table('printlog_pengajuan_barang')->where([['nomor','!=',null],])->get();
+        
+        $isi = $userDb[0];
+        
+        
+       
+
+        return view('sistem-pengajuan-barang.korlap.lihat-detail-printlog',array('isi' => $isi));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+
+}
+
+
+//---------bast----------//
+public function lihat_bast_korlap(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+
+if($cek_role == null){
+    
+    return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+$CekRole = $cek_role -> jabatan;
+   
+
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'koordinasi lapangan' || $request->session()->get('login') && $CekRole == 'Koordinasi Lapangan' ) {
+
+        $nik = $cek_role -> nik;
+        $cek_list = DB::table('bast_pengajuan_barang')->where([['nik_penginput','!=',null],]) -> get();
+
+        return view('sistem-pengajuan-barang.korlap.lihat-bast', array('cek_list' => $cek_list));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+}
+
+public function lihat_detail_bast_korlap_proses(Request $request) {
+    
+$id = $request->session()->get('id');
+$cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+
+if($cek_role == null){
+    return redirect()->action('LoginPengajuanBarang@login');
+}
+
+else{
+$CekRole = $cek_role -> jabatan;
+   
+    
+    
+
+    if($request->session()->get('login') && $CekRole == 'koordinasi lapangan' || $request->session()->get('login') && $CekRole == 'Koordinasi Lapangan' ) {
+
+        $nomor = $request->get('nomor');
+        
+        $userDb = DB::table('bast_pengajuan_barang')->where([['nomor', $nomor],])->get();
+        
+        $isi = $userDb[0];
+        
+        
+       
+
+        return view('sistem-pengajuan-barang.korlap.lihat-detail-bast',array('isi' => $isi));
+        
+    } 
+    
+        else{
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+}
+
+}
+
+//-----profile------//
+public function profile_korlap(Request $request) {
+    
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    
+    if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
     }
     
+    else{
+    $CekRole = $cek_role -> jabatan;
+       
+        
+        
     
-    public function profile_korlap(Request $request) {
-    
-        return view('sistem-pengajuan-barang.korlap.profile');
-    
-    }
-    
-    public function setelan_korlap(Request $request) {
-    
-        return view('sistem-pengajuan-barang.korlap.setelan');
-    
-    }
-    
-    
-    
-    
-    
-    
-    public function lihat_surat_perintah_korlap(Request $request) {
+        if($request->session()->get('login') && $CekRole == 'Koordinasi Lapangan' || $request->session()->get('login') && $CekRole == 'koordinasi lapangan' ) {
+                
+                $id = $request->session()->get('id');
             
-                return view('sistem-pengajuan-barang.korlap.lihat-surat-perintah');
-        
-    }
+                $LihatProfile = DB::table('users_pengajuan_barang');
+                        
+                $LihatProfileNext = $LihatProfile->where('id', $id)->first();
     
-    public function lihat_detail_surat_perintah_korlap(Request $request) {
+                return view('sistem-pengajuan-barang.korlap.profile', array('profile' => $LihatProfileNext));
             
-                return view('sistem-pengajuan-barang.korlap.lihat-detail-surat-perintah');
+        } 
         
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
+
+}
+
+public function setelan_korlap(Request $request) {
+    
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    
+    if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
     }
     
+    else{
+    $CekRole = $cek_role -> jabatan;
+       
+        
+        
     
-    
-    
-    
-    
-    public function lihat_print_log_korlap(Request $request) {
+        if($request->session()->get('login') && $CekRole == 'koordinasi lapangan' || $request->session()->get('login') && $CekRole == 'Koordinasi Lapangan' ) {
+
+            $id = $request->session()->get('id');
             
-                return view('sistem-pengajuan-barang.korlap.lihat-printlog');
-        
-    }
+            $LihatProfile = DB::table('users_pengajuan_barang');
+                        
+            $LihatProfileNext = $LihatProfile->where('id', $id)->first();
     
-    public function lihat_detail_print_log_korlap(Request $request) {
+            return view('sistem-pengajuan-barang.korlap.setelan', array('profile' => $LihatProfileNext));
             
-                return view('sistem-pengajuan-barang.korlap.lihat-detail-printlog');
+        } 
         
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
+
+}
+
+
+
+
+public function setelan_korlap_proses(Request $request) {
+    
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    
+    if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
     }
     
+    else{
+    $CekRole = $cek_role -> jabatan;
+       
+        
+        
     
+        if($request->session()->get('login') && $CekRole == 'koordinasi lapangan' || $request->session()->get('login') && $CekRole == 'Koordinasi Lapangan' ) {
     
+
+            $nama = $request->get('nama');
+            $nik = $request->get('nik');
+            $email = $request->get('email');
+            $no_hp = $request->get('no_hp');
+            $bagian = $request->get('bagian');
+            $jabatan = $request->get('jabatan');
     
+            $file = $request->file('img');
+            //dd($file);
+            $fileName = $file->hashName();
+            $storeFile = $file->store('public/foto');
     
-    
-    
-    
-    public function lihat_bast_korlap(Request $request) {
+            $userDb = DB::table('users_pengajuan_barang')->where('id', $id)
             
-                return view('sistem-pengajuan-barang.korlap.lihat-bast');
-        
-    }
-    
-    public function lihat_detail_bast_korlap(Request $request) {
+                                        ->update(['nama' => $nama, 'nik' => $nik, 'email' => $email, 'no_hp' => $no_hp, 'bagian' => $bagian, 'jabatan' => $jabatan, 'img_url' => $fileName]);
+            //dd($userDb);
+            //dd($userDb);
+            $request->session()->put('img_url', $fileName);
+
+
+            return redirect()->action('PengajuanBarang@profile_korlap');
             
-                return view('sistem-pengajuan-barang.korlap.lihat-detail-bast');
+        } 
         
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
     }
+
+}
     
     
     /*--------------------------------------------------------------------------------*/
@@ -1116,76 +1732,364 @@ public function dashboard_korlap(Request $request) {
 
     /*--------------------------- GUDANG --------------------------------------*/
 
-public function dashboard_gudang(Request $request) {
+    public function dashboard_gudang(Request $request) {
         
-            return view('sistem-pengajuan-barang.gudang.dashboard');
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
+    }
+    else{
+        
+        $CekRole = $cek_role -> jabatan;
+       
+        
+        
+    
+        if($request->session()->get('login') && $CekRole == 'gudang' || $request->session()->get('login') && $CekRole == 'Gudang' ) {
+            $get_nama = $cek_role -> nama;
+            $get_nik = $cek_role -> nik;
+    
+            $hitung_printlog = DB::table('printlog_pengajuan_barang')->where([['nik_penginput','!=',null],])->count();
+            $hitung_surat_perintah = DB::table('surat_perintah_pengajuan_barang')->where([['nik_penginput','!=',null],])->count();
+            $hitung_bast = DB::table('bast_pengajuan_barang')->where([['nik_penginput','!=',null],])->count();
+            
+            return view('sistem-pengajuan-barang.gudang.dashboard', array('nama' => $get_nama,'jum_printlog' => $hitung_printlog, 'jum_surat_perintah' => $hitung_surat_perintah, 'jum_bast' => $hitung_bast));
+            
+        } 
+        
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
+    
+    }
+    
+    //------surat perintah------//
+    public function lihat_surat_perintah_gudang(Request $request) {
+        
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
+    }
+    
+    else{
+    $CekRole = $cek_role -> jabatan;
+       
+        
+        
+    
+        if($request->session()->get('login') && $CekRole == 'Gudang' || $request->session()->get('login') && $CekRole == 'gudang' ) {
+            $nik = $cek_role -> nik;
+            $cek_list = DB::table('surat_perintah_pengajuan_barang')->where([['nik_penginput', '!=', null],]) -> get();
+    
+            //dd($cek_list);
+    
+            return view('sistem-pengajuan-barang.gudang.lihat-surat-perintah', array('cek_list' => $cek_list));
+            
+        } 
+        
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
+    
+    }
+    
+    public function lihat_detail_surat_perintah_gudang_proses(Request $request) {
+        
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+        
+    if($cek_role == null){
+            return redirect()->action('LoginPengajuanBarang@login');
+    }
+    
+    else{
+        $CekRole = $cek_role -> jabatan;
+       
+        
+        
+    
+        if($request->session()->get('login') && $CekRole == 'gudang' || $request->session()->get('login') && $CekRole == 'Gudang' ) {
+    
+            $nomor_surat = $request->get('nomor_surat');
+    
+            $userDb = DB::table('surat_perintah_pengajuan_barang')->where('nomor_surat', $nomor_surat)->get();
+    
+            $isi = $userDb[0];
+    
+    
+            return view('sistem-pengajuan-barang.gudang.lihat-detail-surat-perintah',array('isi' => $isi));
+            
+        } 
+        
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
+    
+    }
+    
+    //-------printlog---------//
+    public function lihat_printlog_gudang(Request $request) {
+        
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    
+    if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
+    }
+    
+    else{
+    $CekRole = $cek_role -> jabatan;
+       
+        
+        
+    
+        if($request->session()->get('login') && $CekRole == 'Gudang' || $request->session()->get('login') && $CekRole == 'gudang' ) {
+            $nik = $cek_role -> nik;
+            $cek_list = DB::table('printlog_pengajuan_barang')->where([['nik_penginput','!=',null],]) -> get();
+    
+            return view('sistem-pengajuan-barang.gudang.lihat-printlog', array('cek_list' => $cek_list));
+            
+        } 
+        
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
+    
+    }
+    
+    public function lihat_detail_printlog_gudang_proses(Request $request) {
+        
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    
+    if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
+    }
+    
+    else{
+    $CekRole = $cek_role -> jabatan;
+       
+        
+        
+    
+        if($request->session()->get('login') && $CekRole == 'gudang' || $request->session()->get('login') && $CekRole == 'Gudang' ) {
+    
+            $nomor = $request->get('nomor');
+            
+            $userDb = DB::table('printlog_pengajuan_barang')->where([['nomor','!=',null],])->get();
+            
+            $isi = $userDb[0];
+            
+            
+           
+    
+            return view('sistem-pengajuan-barang.gudang.lihat-detail-printlog',array('isi' => $isi));
+            
+        } 
+        
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
     
     }
     
     
-    public function profile_gudang(Request $request) {
+    //---------bast----------//
+    public function lihat_bast_gudang(Request $request) {
+        
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
     
-        return view('sistem-pengajuan-barang.gudang.profile');
+    if($cek_role == null){
+        
+        return redirect()->action('LoginPengajuanBarang@login');
+    }
+    
+    else{
+    $CekRole = $cek_role -> jabatan;
+       
+    
+        
+        
+    
+        if($request->session()->get('login') && $CekRole == 'gudang' || $request->session()->get('login') && $CekRole == 'Gudang' ) {
+    
+            $nik = $cek_role -> nik;
+            $cek_list = DB::table('bast_pengajuan_barang')->where([['nik_penginput','!=',null],]) -> get();
+    
+            return view('sistem-pengajuan-barang.gudang.lihat-bast', array('cek_list' => $cek_list));
+            
+        } 
+        
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
+    }
+    
+    public function lihat_detail_bast_gudang_proses(Request $request) {
+        
+    $id = $request->session()->get('id');
+    $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+    
+    if($cek_role == null){
+        return redirect()->action('LoginPengajuanBarang@login');
+    }
+    
+    else{
+    $CekRole = $cek_role -> jabatan;
+       
+        
+        
+    
+        if($request->session()->get('login') && $CekRole == 'Gudang' || $request->session()->get('login') && $CekRole == 'gudang' ) {
+    
+            $nomor = $request->get('nomor');
+            
+            $userDb = DB::table('bast_pengajuan_barang')->where([['nomor', $nomor],])->get();
+            
+            $isi = $userDb[0];
+            
+            
+           
+    
+            return view('sistem-pengajuan-barang.gudang.lihat-detail-bast',array('isi' => $isi));
+            
+        } 
+        
+            else{
+                return redirect()->action('LoginPengajuanBarang@login');
+        }
+    }
+    
+    }
+    
+    //-----profile------//
+    public function profile_gudang(Request $request) {
+        
+        $id = $request->session()->get('id');
+        $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+        
+        if($cek_role == null){
+            return redirect()->action('LoginPengajuanBarang@login');
+        }
+        
+        else{
+        $CekRole = $cek_role -> jabatan;
+           
+            
+            
+        
+            if($request->session()->get('login') && $CekRole == 'gudang' || $request->session()->get('login') && $CekRole == 'Gudang' ) {
+                    
+                    $id = $request->session()->get('id');
+                
+                    $LihatProfile = DB::table('users_pengajuan_barang');
+                            
+                    $LihatProfileNext = $LihatProfile->where('id', $id)->first();
+        
+                    return view('sistem-pengajuan-barang.gudang.profile', array('profile' => $LihatProfileNext));
+                
+            } 
+            
+                else{
+                    return redirect()->action('LoginPengajuanBarang@login');
+            }
+        }
     
     }
     
     public function setelan_gudang(Request $request) {
+        
+        $id = $request->session()->get('id');
+        $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
+        
+        if($cek_role == null){
+            return redirect()->action('LoginPengajuanBarang@login');
+        }
+        
+        else{
+        $CekRole = $cek_role -> jabatan;
+           
+            
+            
+        
+            if($request->session()->get('login') && $CekRole == 'gudang' || $request->session()->get('login') && $CekRole == 'Gudang' ) {
     
-        return view('sistem-pengajuan-barang.gudang.setelan');
+                $id = $request->session()->get('id');
+                
+                $LihatProfile = DB::table('users_pengajuan_barang');
+                            
+                $LihatProfileNext = $LihatProfile->where('id', $id)->first();
+        
+                return view('sistem-pengajuan-barang.gudang.setelan', array('profile' => $LihatProfileNext));
+                
+            } 
+            
+                else{
+                    return redirect()->action('LoginPengajuanBarang@login');
+            }
+        }
     
     }
     
     
     
     
-    
-    
-    public function lihat_surat_perintah_gudang(Request $request) {
-            
-                return view('sistem-pengajuan-barang.gudang.lihat-surat-perintah');
+    public function setelan_gudang_proses(Request $request) {
         
-    }
-    
-    public function lihat_detail_surat_perintah_gudang(Request $request) {
-            
-                return view('sistem-pengajuan-barang.gudang.lihat-detail-surat-perintah');
+        $id = $request->session()->get('id');
+        $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
         
-    }
-    
-    
-    
-    
-    
-    
-    public function lihat_print_log_gudang(Request $request) {
-            
-                return view('sistem-pengajuan-barang.gudang.lihat-printlog');
+        if($cek_role == null){
+            return redirect()->action('LoginPengajuanBarang@login');
+        }
         
-    }
-    
-    public function lihat_detail_print_log_gudang(Request $request) {
+        else{
+        $CekRole = $cek_role -> jabatan;
+           
             
-                return view('sistem-pengajuan-barang.gudang.lihat-detail-printlog');
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    public function lihat_bast_gudang(Request $request) {
             
-                return view('sistem-pengajuan-barang.gudang.lihat-bast');
         
-    }
+            if($request->session()->get('login') && $CekRole == 'gudang' || $request->session()->get('login') && $CekRole == 'Gudang' ) {
+        
     
-    public function lihat_detail_bast_gudang(Request $request) {
-            
-                return view('sistem-pengajuan-barang.gudang.lihat-detail-bast');
+                $nama = $request->get('nama');
+                $nik = $request->get('nik');
+                $email = $request->get('email');
+                $no_hp = $request->get('no_hp');
+                $bagian = $request->get('bagian');
+                $jabatan = $request->get('jabatan');
         
+                $file = $request->file('img');
+                //dd($file);
+                $fileName = $file->hashName();
+                $storeFile = $file->store('public/foto');
+        
+                $userDb = DB::table('users_pengajuan_barang')->where('id', $id)
+                
+                                            ->update(['nama' => $nama, 'nik' => $nik, 'email' => $email, 'no_hp' => $no_hp, 'bagian' => $bagian, 'jabatan' => $jabatan, 'img_url' => $fileName]);
+                //dd($userDb);
+                //dd($userDb);
+                $request->session()->put('img_url', $fileName);
+    
+    
+                return redirect()->action('PengajuanBarang@profile_gudang');
+                
+            } 
+            
+                else{
+                    return redirect()->action('LoginPengajuanBarang@login');
+            }
+        }
+    
     }
     
     

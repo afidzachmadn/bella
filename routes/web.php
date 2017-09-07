@@ -98,12 +98,25 @@ Route::post('/sistem-pengajuan-barang/tu/setelan-tu-proses', "PengajuanBarang@se
 
 /*---------------------------- Kepala Cabang -----------------------------*/
 
-//-----surat perintah------//
+
 Route::get('/sistem-pengajuan-barang/kepala-cabang/dashboard',"PengajuanBarang@dashboard_kepala_cabang");
 
+//-----surat perintah------//
 Route::get('/sistem-pengajuan-barang/kepala-cabang/lihat-surat-perintah',"PengajuanBarang@lihat_surat_perintah_kepala_cabang");
 
 Route::post('/sistem-pengajuan-barang/kepala-cabang/lihat-detail-surat-perintah-kepala-cabang-proses', "PengajuanBarang@lihat_detail_surat_perintah_kepala_cabang_proses");
+
+
+//------printlog-------//
+Route::get('/sistem-pengajuan-barang/kepala-cabang/lihat-printlog',"PengajuanBarang@lihat_printlog_kepala_cabang");
+
+Route::post('/sistem-pengajuan-barang/kepala-cabang/lihat-detail-printlog-kepala-cabang-proses', "PengajuanBarang@lihat_detail_printlog_kepala_cabang_proses");
+
+
+//------bast---------//
+Route::get('/sistem-pengajuan-barang/kepala-cabang/lihat-bast',"PengajuanBarang@lihat_bast_kepala_cabang");
+
+Route::post('/sistem-pengajuan-barang/kepala-cabang/lihat-detail-bast-kepala-cabang-proses', "PengajuanBarang@lihat_detail_bast_kepala_cabang_proses");
 
 
 
@@ -125,21 +138,28 @@ Route::post('/sistem-pengajuan-barang/kepala-cabang/lihat-detail-surat-perintah-
 
 Route::get('/sistem-pengajuan-barang/korlap/dashboard',"PengajuanBarang@dashboard_korlap");
 
-Route::get('/sistem-pengajuan-barang/korlap/profile',"PengajuanBarang@profile_korlap");
-
-Route::get('/sistem-pengajuan-barang/korlap/setelan',"PengajuanBarang@setelan_korlap");
-
-
+//-----surat perintah------//
 Route::get('/sistem-pengajuan-barang/korlap/lihat-surat-perintah',"PengajuanBarang@lihat_surat_perintah_korlap");
-Route::get('/sistem-pengajuan-barang/korlap/lihat-surat-perintah/lihat-detail-surat-perintah',"PengajuanBarang@lihat_detail_surat_perintah_korlap");
 
-Route::get('/sistem-pengajuan-barang/korlap/lihat-printlog',"PengajuanBarang@lihat_print_log_korlap");
-Route::get('/sistem-pengajuan-barang/korlap/lihat-printlog/lihat-detail-printlog',"PengajuanBarang@lihat_detail_print_log_korlap");
+Route::post('/sistem-pengajuan-barang/korlap/lihat-detail-surat-perintah-kepala-cabang-proses', "PengajuanBarang@lihat_detail_surat_perintah_korlap_proses");
 
+
+//------printlog-------//
+Route::get('/sistem-pengajuan-barang/korlap/lihat-printlog',"PengajuanBarang@lihat_printlog_korlap");
+
+Route::post('/sistem-pengajuan-barang/korlap/lihat-detail-printlog-korlap-proses', "PengajuanBarang@lihat_detail_printlog_kepala_korlap_proses");
+
+
+//------bast---------//
 Route::get('/sistem-pengajuan-barang/korlap/lihat-bast',"PengajuanBarang@lihat_bast_korlap");
-Route::get('/sistem-pengajuan-barang/korlap/lihat-bast/lihat-detail-bast',"PengajuanBarang@lihat_detail_bast_korlap");
 
+Route::post('/sistem-pengajuan-barang/korlap/lihat-detail-bast-korlap-proses', "PengajuanBarang@lihat_detail_bast_korlap_proses");
 /*------------------------------------------------------------------------------------*/
+
+
+
+
+
 
 
 
@@ -153,20 +173,22 @@ Route::get('/sistem-pengajuan-barang/korlap/lihat-bast/lihat-detail-bast',"Penga
 
 Route::get('/sistem-pengajuan-barang/gudang/dashboard',"PengajuanBarang@dashboard_gudang");
 
-Route::get('/sistem-pengajuan-barang/gudang/profile',"PengajuanBarang@profile_gudang");
-
-Route::get('/sistem-pengajuan-barang/gudang/setelan',"PengajuanBarang@setelan_gudang");
-
-
+//-----surat perintah------//
 Route::get('/sistem-pengajuan-barang/gudang/lihat-surat-perintah',"PengajuanBarang@lihat_surat_perintah_gudang");
-Route::get('/sistem-pengajuan-barang/gudang/lihat-surat-perintah/lihat-detail-surat-perintah',"PengajuanBarang@lihat_detail_surat_perintah_gudang");
 
-Route::get('/sistem-pengajuan-barang/gudang/lihat-printlog',"PengajuanBarang@lihat_print_log_gudang");
-Route::get('/sistem-pengajuan-barang/gudang/lihat-printlog/lihat-detail-printlog',"PengajuanBarang@lihat_detail_print_log_gudang");
+Route::post('/sistem-pengajuan-barang/gudang/lihat-detail-surat-perintah-gudang-proses', "PengajuanBarang@lihat_detail_surat_perintah_gudang_proses");
 
+
+//------printlog-------//
+Route::get('/sistem-pengajuan-barang/gudang/lihat-printlog',"PengajuanBarang@lihat_printlog_gudang");
+
+Route::post('/sistem-pengajuan-barang/gudang/lihat-detail-printlog-gudang-proses', "PengajuanBarang@lihat_detail_printlog_gudang_proses");
+
+
+//------bast---------//
 Route::get('/sistem-pengajuan-barang/gudang/lihat-bast',"PengajuanBarang@lihat_bast_gudang");
-Route::get('/sistem-pengajuan-barang/gudang/lihat-bast/lihat-detail-bast',"PengajuanBarang@lihat_detail_bast_gudang");
 
+Route::post('/sistem-pengajuan-barang/gudang/lihat-detail-bast-korlap-proses', "PengajuanBarang@lihat_detail_bast_gudang_proses");
 /*------------------------------------------------------------------------------------*/
 
 
