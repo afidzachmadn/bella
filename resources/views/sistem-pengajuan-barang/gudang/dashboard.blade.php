@@ -143,7 +143,7 @@
                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
-                        <img src="{{env('APP_URL')}}/plugins/images/users/agent2.jpg" class="w-full rounded" alt="...">
+                        <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -180,14 +180,11 @@
 </div>
 <!-- ------------------------------------------------------------- -->
 
-
-
-
 <div class="padding">
   <div class="p-y-lg clearfix">
     <div class="text-center">
-      <h2 class="_700 m-b">Hello, Yuanita!</h2>
-      <h5 class="m-b-md">Berikut adalah informasi tentang hasil input dari TU</h5>
+      <h2 class="_700 m-b">Hi, {{$nama}}!</h2>
+      <h5 class="m-b-md">Berikut adalah ringkasan informasi untuk kamu</h5>
     </div>
   </div>
   <div class="p-x-lg">
@@ -199,7 +196,7 @@
               <div class="box-body text-center r-t primary">
                 <h6 class="text-u-c p-v-sm m-a-0 m-t">Surat Perintah</h6>
                 <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">12</span>
+                  <span class="text-2x">{{$jum_surat_perintah}}</span>
                 </h3>
               </div>
               <ul class="list b-t b-b m-a-0 no-radius">
@@ -220,7 +217,7 @@
               <div class="box-body text-center r-t success">
                 <h6 class="text-u-c m-a-0 m-t">Print-log</h6>
                 <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">9</span>
+                  <span class="text-2x">{{$jum_printlog}}</span>
                 </h3>
               </div>
               <ul class="list b-t b-b m-a-0 no-radius">
@@ -241,7 +238,7 @@
               <div class="box-body text-center r-t danger">
                 <h6 class="text-u-c m-a-0 m-t">BAST</h6>
                 <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">7</span>
+                  <span class="text-2x">{{$jum_bast}}</span>
                 </h3>
               </div>
               <ul class="list b-t b-b m-a-0 no-radius">

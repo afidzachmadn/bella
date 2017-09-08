@@ -143,7 +143,7 @@
                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
-                        <img src="{{env('APP_URL')}}/plugins/images/assets/studio10.jpg" class="w-full rounded" alt="...">
+                        <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -180,17 +180,15 @@
 </div>
 <!-- ------------------------------------------------------------- -->
 
-
-
-
 <div class="padding">
 <div class="col-sm-12">
       <div class="box">
         <div class="box-header">
           <h2>List Surat Perintah Pengadaan Barang</h2>
           <small>
-            Berikut adalah list surat perintah pengadaan barang yang telah di inputkan oleh TU di sistem ini.
+            Berikut adalah list surat perintah pengadaan barang yang telah di input oleh TU, untuk melihatnya silahkan klik tombol Lihat.
           </small>
+          <small><b>Jika tombol Lihat tidak dapat di klik, silahkan klik tombol refresh terlebih dahulu</b></small>
         </div>
         <table class="table table-striped b-t">
           <thead>
@@ -201,101 +199,32 @@
             </tr>
           </thead>
           <tbody>
+            @foreach($cek_list as $CekList) 
             <tr>
-              <td class="text-center">IX/2016/7882</td>
-              <td class="text-center"><a href="{{env('APP_URL')}}/sistem-pengajuan-barang/korlap/lihat-surat-perintah/lihat-detail-surat-perintah"><button class="btn btn-block danger">Lihat</button></td>
               
+
+              <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengajuan-barang/korlap/lihat-detail-surat-perintah-korlap-proses')}}" method="post">
+              {{ csrf_field() }}
+              <td>
+              <p class="text-center">{{$CekList -> nomor_surat}}</p>
+              <input style="visibility:hidden" type="text" class="form-control text-center" id="exampleInputEmail1" required="" name="nomor_surat" value="{{$CekList -> nomor_surat }}"></td>
+              <td class="text-center"><button type="submit" class="btn btn-block danger">Lihat</button></td>
+              </form>
              
             </tr>
-            
+            @endforeach
            
           </tbody>
         </table>
       </div>
     </div>
   </div>
- 
+  <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/korlap/lihat-surat-perintah"><button class="btn btn-block success">Refresh</button></a>
+  </br>
 </div>
 
 
 
-
-
-
-
-<!-- .modal -->
-<div id="m-a-a" class="modal fade animate" data-backdrop="true">
-  <div class="modal-dialog" id="animate">
-    <div class="modal-content">
-      <div class="modal-header">
-      	<h5 class="modal-title">Edit Surat Pengadaan Barang</h5>
-      </div>
-      <div class="modal-body text-center p-lg">
-       <form role="form">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Masukan nomor surat yang akan di edit</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="nomor surat" required="">
-            </div>
-            <hr>
-                <div><p><b>Masukan data baru:</b></p></div>
-            <hr>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Masukan nomor surat</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor surat" required="">
-            </div>
-
-            <div class="form-group">
-              <label for="exampleInputEmail1">No Peraturan Direksi</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor peraturan direksi"  required="">
-            </div>
-
-            <div class="form-group">
-              <label for="exampleInputEmail1">No Printlog</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor printlog" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">No Surat Keputusan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor dasar surat keputusan" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">No KJA</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor dasar KJA" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Kepada</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama penerima surat ini" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Untuk Mengangkut</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama/jenis barang yang akan di angkut" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Dari</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama kota/daerah dimana barang berasal" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Tujuan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama kota/daerah dimana barang dikirim" required="">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Alat Angkut</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama alat angkut yang akan digunakan" required="">
-            </div>
-            <div class="form-group">
-               <label for="exampleInputEmail1">Keterangan (jika ada)</label>
-               <textarea class="form-control" rows="2"></textarea>
-            </div>
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn warning m-b" data-dismiss="modal" style="color:white;">No</button>
-        <button type="submit" class="btn success m-b">Kirim</button>
-        </form>
-      </div>
-    </div><!-- /.modal-content -->
-  </div>
-</div>
-<!-- / .modal -->
 
 
 

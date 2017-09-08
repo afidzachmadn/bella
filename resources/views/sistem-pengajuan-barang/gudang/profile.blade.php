@@ -143,7 +143,7 @@
                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
-                        <img src="{{env('APP_URL')}}//plugins/images/users/agent2.jpg" class="w-full rounded" alt="...">
+                        <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -190,13 +190,13 @@
         <div class="col-sm-7">
           <a href="#" class="pull-left m-r-md">
             <span class="avatar w-96">
-              <img src="{{env('APP_URL')}}/plugins/images/users/agent2.jpg">
+              <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}">
               <i class="on b-white"></i>
             </span>
           </a>
           <div class="clear m-b">
-            <h4 class="m-a-0 m-b-sm">Yuanita Christina Reinna</h4></br>
-            <p class="text-muted"><span class="m-r"><i class="material-icons md-24">email</i>&nbsp<b>yuanita@gmail.com</b></span>
+            <h4 class="m-a-0 m-b-sm">{{$profile -> nama}}</h4></br>
+            <p class="text-muted"><span class="m-r"><i class="material-icons md-24">email</i>&nbsp<b>{{$profile -> email}}</b></span>
             </p>
             <div class="block clearfix m-b">
               <a href="" class="btn btn-icon btn-social rounded b-a btn-sm">
@@ -247,31 +247,31 @@
             <div class="row m-b">
               <div class="col-xs-6">
                 <small class="text-muted">Nama</small>
-                <div class="_500">Alexandra Svarosky</div>
+                <div class="_500">{{$profile -> nama}}</div>
               </div>
               <div class="col-xs-6">
                 <small class="text-muted">NIK</small>
-                <div class="_500">12345678910</div>
+                <div class="_500">{{$profile -> nik}}</div>
               </div>
             </div>
             <div class="row m-b">
               <div class="col-xs-6">
                 <small class="text-muted">No HP</small>
-                <div class="_500">087654253612</div>
+                <div class="_500">{{$profile -> no_hp}}</div>
               </div>
               <div class="col-xs-6">
                 <small class="text-muted">E-mail</small>
-                <div class="_500">alexandra@gmail.com</div>
+                <div class="_500">{{$profile -> email}}</div>
               </div>
             </div>
             <div class="row m-b">
               <div class="col-xs-6">
                 <small class="text-muted">Bagian</small>
-                <div class="_500">Input data</div>
+                <div class="_500">{{$profile -> bagian}}</div>
               </div>
               <div class="col-xs-6">
                 <small class="text-muted">Jabatan</small>
-                <div class="_500">Kepala Cabang</div>
+                <div class="_500">{{$profile -> jabatan}}</div>
               </div>
             </div>
             
@@ -284,12 +284,12 @@
           <div class="box info">
             <div class="box-body">
               <a href="#" class="pull-left m-r">
-                <img src="{{env('APP_URL')}}/images/4.jpg" class="img-circle w-40">
+                <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="img-circle w-40">
               </a>
               <div class="clear">
-                <a href="#">@alexandra</a>
-                <small class="block text-muted">Anda bisa edit profile disini</small>
-                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/ketua-cabang/setelan" class="btn btn-sm btn-rounded btn-info m-t-xs"> Edit</a>
+                <a href="#">{{$profile -> nama}}</a>
+                <small class="block text-muted">Kamu bisa edit profilemu disini</small>
+                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/gudang/setelan" class="btn btn-sm btn-rounded btn-info m-t-xs"> Edit</a>
               </div>
             </div>
           </div>
@@ -298,7 +298,6 @@
       </div>
     </div>
   </div>
-
 
 
 

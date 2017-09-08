@@ -143,7 +143,7 @@
                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
-                        <img src="{{env('APP_URL')}}/plugins/images/users/agent2.jpg" class="w-full rounded" alt="...">
+                        <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -199,21 +199,21 @@
 <div class="padding printableArea">
   <div class="col-sm-12">
     <div class="box">
-      <div class="text-center"><b><u><h5>BERITA ACARA SERAH TERIMA BARANG</h5></u></b><span><p><i>Nomor:XI/2016/203</i></p></span></div>
+      <div class="text-center"><b><u><h5>BERITA ACARA SERAH TERIMA BARANG</h5></u></b><span><p><i>Nomor:{{$isi -> nomor}}</i></p></span></div>
       
       <div class="box col-sm-12 padding">
-      <p> Pada tanggal......., kami yang bertanda tangan dibawah ini:</p>
+      <p> Pada tanggal {{$isi -> hari_tanggal}}, kami yang bertanda tangan dibawah ini:</p>
 
-      <p>1. ............ jabatan ........... bertindak dan atas nama PT. Jasa Prima Logistics BULOG cabang Jawa Tengah, selanjutnya disebut pihak pertama.</p>
-      <p>2. ............ jabatan ........... bertindak dan atas nama Perum BULOG subdivre Wilayah I Semarang, selanjutnya disebut pihak kedua.</p>
+      <p>1. {{$isi -> pihak_pertama}} jabatan {{$isi -> jabatan_pihak_pertama}} bertindak dan atas nama PT. Jasa Prima Logistics BULOG cabang Jawa Tengah, selanjutnya disebut pihak pertama.</p>
+      <p>2. {{$isi -> pihak_kedua}} jabatan {{$isi -> jabatan_pihak_kedua}} bertindak dan atas nama Perum BULOG subdivre Wilayah I Semarang, selanjutnya disebut pihak kedua.</p>
       <p> Untuk selanjutnya PIHAK PERTAMA dan PIHAK KEDUA secara bersama sama disebut para pihak.</p>
       <p>Berdasarkan:</p>
-      <p>Faximile BULOG Nomor:........... tanggal ......... perihal ...........................................................................................................................</p>
-      <p>PIHAK PERTAMA dengan ini menyerahkan kepada PIHAK KEDUA ............ dan PIHAK KEDUA telah menerima penyerahan dari PIHAK PERTAMA berupa:</p>
-      <p>a. Jenis barang : ...................</br>
-      b. Jumlah kuantum : ................. </br>
-      c. Tanggal penyerahan : ................</br>
-      d. Alat angkut : ................... </br>
+      <p>Faximile BULOG Nomor:{{$isi -> faximile_bulog}} tanggal {{$isi -> tanggal_faximile_bulog}} perihal {{$isi -> perihal}}</p>
+      <p>PIHAK PERTAMA dengan ini menyerahkan kepada PIHAK KEDUA {{$isi -> keterangan_1}} dan PIHAK KEDUA telah menerima penyerahan dari PIHAK PERTAMA berupa:</p>
+      <p>a. Jenis barang : {{$isi -> jenis_barang}}</br>
+      b. Jumlah kuantum : {{$isi -> jumlah_kuantum}} </br>
+      c. Tanggal penyerahan : {{$isi -> tanggal_penyerahan}}</br>
+      d. Alat angkut : {{$isi -> alat_angkut}}</br>
       </p>
       <p>Demikian berita acara serah terima ini dibuat, ditandatangani dalam rangkap 2 (dua) diatas kertas bermaterai cukup dan mempunyai kekuatan hukum yang sama bagi para pihak.</p>
       </div>
@@ -222,20 +222,20 @@
         <div class="text-center pull-left">
             <p>PIHAK PERTAMA</p><span><p>Yang Menyerahkan</p></span>
         
-        <p>( .................. )</p>
+        <p>( {{$isi -> pihak_pertama}} )</p>
         </div>
 
         <div class="text-center pull-right">
             <p>PIHAK KEDUA</p><span><p>Yang menerima</p></span>
         </br>
-        <p>( .................. )</p>
+        <p>( {{$isi -> pihak_kedua}} )</p>
         </div>
 
         
         <div class="text-center" style="position:center">
             <p>Mengetahui,</p><span><p>Subdivre Wilayah I Semarang</p></span>
         </br>
-        <p>( .............................................. )</p>
+        <p>( {{$isi -> nama_wakil}} )</p>
         </div>
       </div>
 

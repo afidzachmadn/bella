@@ -143,7 +143,7 @@
                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
-                        <img src="{{env('APP_URL')}}/plugins/images/users/agent2.jpg" class="w-full rounded" alt="...">
+                        <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -199,27 +199,26 @@
 <div class="padding printableArea">
   <div class="col-sm-12">
     <div class="box">
-      <div class="text-center"><b><u><h2>PrintLog</h2></u></b><span><p><i>Nomor:XI/2016/203</i></p></span></div>
+      <div class="text-center"><b><u><h2>PrintLog</h2></u></b><span><p><i>Nomor:{{$isi -> nomor}}</i></p></span></div>
       
       <div class="box col-sm-6 padding"><p><b>DETAIL :</b></br>
-      1. Printlog nomor :&nbsp&nbsp&nbspXI/2017.1996</br>
-      2. Untuk :&nbsp&nbsp&nbspXI/2017.1996</br>
-      3. Dari :</br>
-      4. Asal berita :</br>
-      5. Hal :</br>
-      6. Jumlah lembar :</br>
-      7. Tembusan :</br>
+      1. Printlog nomor :&nbsp&nbsp&nbsp{{$isi -> nomor}}</br>
+      2. Untuk :&nbsp&nbsp&nbsp{{$isi -> untuk}}</br>
+      3. Asal berita :&nbsp&nbsp&nbsp{{$isi -> asal_berita}}</br>
+      4. Hal : &nbsp&nbsp&nbsp{{$isi -> hal}}</br>
+      5. Jumlah lembar :&nbsp&nbsp&nbsp{{$isi -> jumlah_lembar}}</br>
+      6. Tembusan :&nbsp&nbsp&nbsp{{$isi -> tembusan}}</br>
 
       </p>
       </div>
 
       <div class="box col-sm-6 padding"><p><b>ISI BERITA :</b></br>
-      1. Kode printlog:</br>
-      2. Pengirim:</br>
-      3. Penerima:</br>
-      4. Kuantum (ton) netto:</br>
-      5. Jenis barang:</br>
-      6. Jumlah:</br>
+      1. Kode printlog:&nbsp&nbsp&nbsp{{$isi -> kode_printlog}}</br>
+      2. Pengirim:&nbsp&nbsp&nbsp{{$isi -> pengirim}}</br>
+      3. Penerima:&nbsp&nbsp&nbsp{{$isi -> penerima}}</br>
+      4. Kuantum (ton) netto:&nbsp&nbsp&nbsp{{$isi -> kuantum}}</br>
+      5. Jenis barang:&nbsp&nbsp&nbsp{{$isi -> jenis_barang}}</br>
+      6. Jumlah:&nbsp&nbsp&nbsp{{$isi -> jumlah}}</br>
      
       </p>
       </div>
@@ -228,7 +227,7 @@
       <p>Faksimili ini bersifat printlog, divre pengirim segera melaksanakan pengaduan jasa angkutan dan berkoordinasi dengan divre penerima untuk menyiapkan space gudang.</p>
       <p>Biaya movenas di dropping sesuai hasil pengadaan jasa angkutan.</p>
       <p>Tata cara angkutan sesuai peraturan Direksi nomor: PD-43/DO000/12/2016.</p>
-      <p>Printlog ini berlaku sejak tanggal diterbitkannya sampai dengan tanggal [isi-tanggal].</p>
+      <p>Printlog ini berlaku sejak tanggal diterbitkannya yaitu tanggal {{$isi -> tanggal}} sampai dengan tanggal {{$isi -> berlaku_sampai_tanggal}}.</p>
        <p class="text-center"><b>Demikian untuk dilaksanakan dan laporan pelaksanaannya ke Perum BULOG.</b></p>
       </div>
 

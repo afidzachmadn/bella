@@ -143,7 +143,7 @@
                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
-                        <img src="{{env('APP_URL')}}/plugins/images/users/agent2.jpg" class="w-full rounded" alt="...">
+                        <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -200,29 +200,29 @@
 <div class="padding printableArea">
   <div class="col-sm-12">
     <div class="box">
-      <div class="text-center"><b><u><h2>INTRUKSI ANGKUTAN</h2></u></b><span><p><i>Nomor:XI/2016/203</i></p></span></div>
+      <div class="text-center"><b><u><h2>INTRUKSI ANGKUTAN</h2></u></b><span><p><i>Nomor: {{$isi -> nomor_surat}}</i></p></span></div>
       
       <div class="box col-sm-6 padding"><p><b>DASAR PERATURAN :</b></br>
-      1. Peraturan Direksi Perum BULOG nomor:&nbsp&nbsp&nbspXI/2017.1996</br>
-      2. Printlog Perum BULOG nomor:&nbsp&nbsp&nbspXI/2017.1996</br>
-      3. Kode Printlog:</br>
-      4. Surat Penetapan Pemenang nomor:</br>
-      5. Kontrak Jasa Angkut nomor:</br>
+      1. Peraturan Direksi Perum BULOG nomor:&nbsp&nbsp&nbsp{{$isi -> nomor_peraturan_direksi}}</br>
+      2. Printlog Perum BULOG nomor:&nbsp&nbsp&nbsp{{$isi -> nomor_printlog}}</br>
+      3. Kode Printlog:&nbsp&nbsp&nbsp{{$isi -> kode_printlog}}</br>
+      4. Surat Penetapan Pemenang nomor:&nbsp&nbsp&nbsp{{$isi -> nomor_surat_keputusan}}</br>
+      5. Kontrak Jasa Angkut nomor:&nbsp&nbsp&nbsp{{$isi -> no_kja}}</br>
       </p>
       </div>
 
       <div class="box col-sm-6 padding"><p><b>DETAIL PENGIRIMAN :</b></br>
-      1. Ditunjukan Kepada:</br>
-      2. Untuk Mengangkut:</br>
-      3. Dari:</br>
-      4. Tujuan:</br>
+      1. Ditunjukan Kepada:&nbsp&nbsp&nbsp{{$isi -> kepada}}</br>
+      2. Untuk Mengangkut:&nbsp&nbsp&nbsp{{$isi -> untuk_mengangkut}}</br>
+      3. Dari:&nbsp&nbsp&nbsp{{$isi -> dari}}</br>
+      4. Tujuan:&nbsp&nbsp&nbsp{{$isi -> tujuan}}</br>
      
       </p>
       </div>
 
       <div class="box col-sm-12 padding"><p><b>KETENTUAN PENGIRIMAN :</b></p>
-      <p>A. Alat angkut yang digunakan truck.</p>
-      <p>B. Pelaksanaan angkut dilakukan sesuai dengan ketentuan peraturan direksiperum BULOG No.xxxxx tentang pedoman Pengadaan Jasa Angkut Barang dalam Negeri di lingkungan perum BULOG.</p>
+      <p>A. Alat angkut yang digunakan {{$isi -> alat_angkut}}.</p>
+      <p>B. Pelaksanaan angkut dilakukan sesuai dengan ketentuan peraturan direksiperum BULOG No.{{$isi -> nomor_peraturan_direksi}} tentang pedoman Pengadaan Jasa Angkut Barang dalam Negeri di lingkungan perum BULOG.</p>
       <p>C. Menghubungi dan melaporkan rencana dan pelaksanaan angkutan ini kepada Drive/Sub-Drive pengirim dan penerima.</p>
       <p>D. Menghubungi perusahaan pelayaran untuk angkatan laut, DLLAJR untuk angkatan darat serta dokumen-dokumen yang diperlukan untuk pelaksanaan angkutan ini.</p>
       <p>E. Segala dokumen yang diperlukan untuk penylenggaraan angkutan, harus sudah diselesaikan selambat lambatnya dalam waktu 83 (delapan puluh tiga) hari kalender terhitung mulai tanggal intruksi angkutan ini.</p>

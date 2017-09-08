@@ -211,7 +211,7 @@
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="#" class="btn btn-block btn-lg primary">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/input-surat-perintah/lihat-surat-perintah" class="btn btn-block btn-lg primary">Lihat</a>
               </div>
             </div>
           </div>
@@ -232,7 +232,7 @@
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="#" class="btn btn-block btn-lg success">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/input-print-log/lihat-printlog" class="btn btn-block btn-lg success">Lihat</a>
               </div>
             </div>
           </div>
@@ -253,7 +253,7 @@
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="#" class="btn btn-block btn-lg danger">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/input-bast/lihat-bast" class="btn btn-block btn-lg danger">Lihat</a>
               </div>
             </div>
           </div>

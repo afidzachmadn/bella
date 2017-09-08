@@ -1417,7 +1417,7 @@ $CekRole = $cek_role -> jabatan;
 
 }
 
-public function lihat_detail_surat_korlap_cabang_proses(Request $request) {
+public function lihat_detail_surat_perintah_korlap_proses(Request $request) {
     
 $id = $request->session()->get('id');
 $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();
@@ -1483,7 +1483,7 @@ $CekRole = $cek_role -> jabatan;
 
 }
 
-public function lihat_detail_korlap_kepala_cabang_proses(Request $request) {
+public function lihat_detail_printlog_korlap_proses(Request $request) {
     
 $id = $request->session()->get('id');
 $cek_role = DB::table('users_pengajuan_barang')->where('id',$id)->first();

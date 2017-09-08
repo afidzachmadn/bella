@@ -143,7 +143,7 @@
                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
-                        <img src="{{env('APP_URL')}}/images/4.jpg" class="w-full rounded" alt="...">
+                        <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -191,6 +191,7 @@
           <small>
             Berikut adalah list surat perintah pengadaan barang yang telah di input oleh TU, untuk melihatnya silahkan klik tombol Lihat.
           </small>
+          <small><b>Jika tombol Lihat tidak dapat di klik, silahkan klik tombol refresh terlebih dahulu</b></small>
         </div>
         <table class="table table-striped b-t">
           <thead>
@@ -221,7 +222,11 @@
       </div>
     </div>
   </div>
+  <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/kepala-cabang/lihat-surat-perintah"><button class="btn btn-block success">Refresh</button></a>
+  </br>
 </div>
+
+
 
 
 

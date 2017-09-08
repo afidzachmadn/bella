@@ -143,7 +143,7 @@
                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
-                        <img src="{{env('APP_URL')}}/images/4.jpg" class="w-full rounded" alt="...">
+                        <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -186,7 +186,7 @@
 <div class="padding">
   <div class="p-y-lg clearfix">
     <div class="text-center">
-      <h2 class="_700 m-b">Selamat datang, Ibu Alexandra!</h2>
+      <h2 class="_700 m-b">Selamat datang, Ibu {{$nama}}!</h2>
       <h5 class="m-b-md">Ini adalah sekilas informasi untuk anda</h5>
     </div>
   </div>
@@ -199,7 +199,7 @@
               <div class="box-body text-center r-t primary">
                 <h6 class="text-u-c p-v-sm m-a-0 m-t">Surat Perintah</h6>
                 <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">12</span>
+                  <span class="text-2x">{{$jum_surat_perintah}}</span>
                 </h3>
               </div>
               <ul class="list b-t b-b m-a-0 no-radius">
@@ -211,7 +211,7 @@
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="#" class="btn btn-block btn-lg primary">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/kepala-cabang/lihat-surat-perintah" class="btn btn-block btn-lg primary">Lihat</a>
               </div>
             </div>
           </div>
@@ -220,7 +220,7 @@
               <div class="box-body text-center r-t success">
                 <h6 class="text-u-c m-a-0 m-t">Print-log</h6>
                 <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">9</span>
+                  <span class="text-2x">{{$jum_printlog}}</span>
                 </h3>
               </div>
               <ul class="list b-t b-b m-a-0 no-radius">
@@ -232,7 +232,7 @@
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="#" class="btn btn-block btn-lg success">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/kepala-cabang/lihat-printlog" class="btn btn-block btn-lg success">Lihat</a>
               </div>
             </div>
           </div>
@@ -241,7 +241,7 @@
               <div class="box-body text-center r-t danger">
                 <h6 class="text-u-c m-a-0 m-t">BAST</h6>
                 <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">7</span>
+                  <span class="text-2x">{{$jum_bast}}</span>
                 </h3>
               </div>
               <ul class="list b-t b-b m-a-0 no-radius">
@@ -253,7 +253,7 @@
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="#" class="btn btn-block btn-lg danger">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/kepala-cabang/lihat-bast" class="btn btn-block btn-lg danger">Lihat</a>
               </div>
             </div>
           </div>

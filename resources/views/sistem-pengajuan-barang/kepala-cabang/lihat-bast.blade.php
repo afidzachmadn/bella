@@ -143,7 +143,7 @@
                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
-                        <img src="{{env('APP_URL')}}/images/4.jpg" class="w-full rounded" alt="...">
+                        <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -174,7 +174,7 @@
 		
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item active">Lihat printlog</li>
+			<li class="breadcrumb-item active">Lihat BAST</li>
 		</ol>
 		
 </div>
@@ -187,33 +187,43 @@
 <div class="col-sm-12">
       <div class="box">
         <div class="box-header">
-          <h2>List BAST</h2>
+          <h2>List Berita Acara Serah Terima</h2>
           <small>
-            Berikut adalah list BAST pengadaan barang yang telah anda inputkan, untuk mengeditnya silahkan klik tombol edit yang ada di bawah tabel.
+            Berikut adalah list BAST pengadaan barang yang telah di input oleh TU, untuk melihatnya silahkan klik tombol Lihat.
           </small>
+          <small><b>Jika tombol Lihat tidak dapat di klik, silahkan klik tombol refresh terlebih dahulu</b></small>
         </div>
         <table class="table table-striped b-t">
           <thead>
             <tr>
-              <th class="text-center">Nomor BAST</th>
-              <th class="text-center">Lihat BAST</th>
+              <th class="text-center">Nomor Surat</th>
+              <th class="text-center">Lihat Surat</th>
               
             </tr>
           </thead>
           <tbody>
+            @foreach($cek_list as $CekList) 
             <tr>
-              <td class="text-center">IX/2016/7882</td>
-              <td class="text-center"><a href="{{env('APP_URL')}}/sistem-pengajuan-barang/kepala-cabang/lihat-bast/lihat-detail-bast"><button class="btn btn-block danger">Lihat</button></td>
               
+
+              <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengajuan-barang/kepala-cabang/lihat-detail-bast-kepala-cabang-proses')}}" method="post">
+              {{ csrf_field() }}
+              <td>
+              <p class="text-center">{{$CekList -> nomor}}</p>
+              <input style="visibility:hidden" type="text" class="form-control text-center" id="exampleInputEmail1" required="" name="nomor" value="{{$CekList -> nomor }}"></td>
+              <td class="text-center"><button type="submit" class="btn btn-block danger">Lihat</button></td>
+              </form>
              
             </tr>
-            
+            @endforeach
            
           </tbody>
         </table>
       </div>
     </div>
   </div>
+  <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/kepala-cabang/lihat-bast"><button class="btn btn-block success">Refresh</button></a>
+  </br>
 </div>
 
 
