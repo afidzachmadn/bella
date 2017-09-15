@@ -1,4 +1,4 @@
-@extends('sistem-pengiriman-barang.master.master-tu')
+@extends('sistem-pengiriman-barang.master.master-transportasi')
 
 
 
@@ -43,10 +43,10 @@
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/profile">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/transportasi/profile">
                         <span>Profile</span>
                       </a>
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/setelan">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/transportasi/setelan">
                         <span>Setelan</span>
                       </a>
                       
@@ -107,7 +107,7 @@
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/input-surat-jalan/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/transportasi/input-surat-jalan/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/lihat-bast" class="btn btn-block btn-lg success">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/transportasi/lihat-bast" class="btn btn-block btn-lg success">Lihat</a>
               </div>
             </div>
           </div>
@@ -151,7 +151,7 @@
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/lihat-delivery-order" class="btn btn-block btn-lg primary">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/transportasi/lihat-delivery-order" class="btn btn-block btn-lg primary">Lihat</a>
               </div>
             </div>
           </div>

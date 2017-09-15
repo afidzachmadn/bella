@@ -12,7 +12,7 @@
                 <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
                   <i class="ion-navicon"></i>
                 </a>
-                <div class="navbar-item pull-left h5" id="pageTitle">Dashboard</div>
+                <div class="navbar-item pull-left h5" id="pageTitle">Input Surat Jalan</div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
 
@@ -70,7 +70,7 @@
 		
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item active">Dashboard</li>
+			<li class="breadcrumb-item active">Input surat jalan</li>
 		</ol>
 		
 </div>
@@ -79,88 +79,76 @@
 
 
 
-<div class="padding">
-  <div class="p-y-lg clearfix">
-    <div class="text-center">
-      <h2 class="_700 m-b">Howdy, nana</h2>
-      <h5 class="m-b-md">Berikut adalah ringkasan kerjamu</h5>
-    </div>
-  </div>
-  <div class="p-x-lg">
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <div class="row no-gutter">
-          <div class="col-sm-4 push-sm-4">
-            <div class="box m-t-n">
-              <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">Surat Jalan</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">1</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah surat jalan yang kamu inputkan
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/input-surat-jalan/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4 pull-sm-4">
-            <div class="box">
-              <div class="box-body text-center r-t success">
-                <h6 class="text-u-c m-a-0 m-t">BAST</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">2</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah berita acara serah terima yang telah masuk
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/lihat-bast" class="btn btn-block btn-lg success">Lihat</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="box m-t-n">
-              <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">Delivery Order</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">1</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah delivery order yang telah masuk
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/lihat-delivery-order" class="btn btn-block btn-lg primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-          
+<div class="box">
+        <div class="box-header">
+          <h2>Input Surat Jalan</h2>
+          <small>Silahkan isi form surat jalan yang ada dibawah ini</small>
         </div>
+        <div class="box-divider m-a-0"></div>
+        <div class="box-body">
+          <form role="form" class="form-horizontal form-material" id="loginform" action="http://bella.dev/sistem-pengiriman-barang/tu/input-surat-jalan-tu-proses" method="post">
+          {{ csrf_field() }}
+            
+
+            <div class="form-group">
+                    <p>Tanggal Surat Jalan:</p>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="datepicker-autoclose" placeholder="tahun/bulan/hari" name="tanggal_surat_jalan" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                    </div>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Kepada</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kepada" required="" name="kepada">
+            </div>
+            
+            <div class="form-group">
+              <label for="exampleInputEmail1">No Kendaraan</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="no kendaraan" required="" name="no_kendaraan">
+            </div>
+            
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nomor</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="nomor surat jalan" required="" name="guna_keperluan">
+            </div>
+            
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nama Barang</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama barang" required="" name="nama_barang">
+            </div>
+            
+            <div class="form-group">
+              <label for="exampleInputEmail1">Jumlah</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="jumlah barang" required="" name="jumlah_barang">
+            </div>
+            
+            <div class="form-group">
+               <label for="exampleInputEmail1">Keterangan</label>
+               <textarea class="form-control" rows="2" name="keterangan" placeholder="keterangan"></textarea>
+            </div>
+            
+            
+
+           
+            <button type="submit" class="btn white m-b">Kirim</button>
+           
+          </form>
+        </div>
+        
       </div>
+      <div class="col-sm-12">
+         <a href="http://bella.dev/sistem-pengiriman-barang/tu/input-surat-jalan/lihat-surat-jalan"><button class="btn btn-block danger">Lihat surat jalan</button></a>
+      </div>
+     
+        </br>
+        </br>
+        </br>
     </div>
-  </div>
-</div>
+    
+    </div>
+
+
+
 
 
 

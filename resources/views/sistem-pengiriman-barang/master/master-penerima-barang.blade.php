@@ -9,7 +9,7 @@
 
   <!-- for ios 7 style, multi-resolution icon of 152x152 -->
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <meta name="apple-mobile-web-app-stapenerima-barangs-barstyle" content="black-translucent">
   <link rel="apple-touch-icon" href="{{env('APP_URL')}}/images/logo.png">
   <meta name="apple-mobile-web-app-title" content="Flatkit">
   <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
@@ -70,7 +70,7 @@
                 <span class="text-xs">Menu Utama</span>
               </li>
               <li>
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/dashboard" class="b-danger">
+                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/dashboard" class="b-danger">
                   <span class="nav-icon text-white no-fade">
                     <i class="ion-filing"></i>
                   </span>
@@ -84,26 +84,7 @@
                 <span class="text-xs">Menu Pilihan</span>
               </li>
 
-              <li>
-                <a>
-                  <span class="nav-caret">
-                    <i class="fa fa-caret-down"></i>
-                  </span>
-                  <span class="nav-icon">
-                    <i class="ion-plus-circled"></i>
-                  </span>
-                  <span class="nav-text">Input data</span>
-                </a>
-                <ul class="nav-sub nav-mega nav-mega-3">
-                  <li>
-                    <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/input-surat-jalan" >
-                      <span class="nav-text">Input Surat Jalan</span>
-                    </a>
-                  </li>
-                  
-                  
-                </ul>
-              </li>
+              
 
               <li>
                 <a>
@@ -116,13 +97,9 @@
                   <span class="nav-text">Lihat data</span>
                 </a>
                 <ul class="nav-sub nav-mega nav-mega-3">
+                  
                   <li>
-                    <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/lihat-delivery-order" >
-                      <span class="nav-text">Lihat Delivery Order</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/lihat-bast" >
+                    <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/lihat-bast" >
                       <span class="nav-text">Lihat BAST</span>
                     </a>
                   </li>

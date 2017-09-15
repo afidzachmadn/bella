@@ -1,4 +1,4 @@
-@extends('sistem-pengiriman-barang.master.master-tu')
+@extends('sistem-pengiriman-barang.master.master-penerima-barang')
 
 
 
@@ -43,10 +43,10 @@
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/profile">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/profile">
                         <span>Profile</span>
                       </a>
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/setelan">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/setelan">
                         <span>Setelan</span>
                       </a>
                       
@@ -93,7 +93,7 @@
           <div class="col-sm-4 push-sm-4">
             <div class="box m-t-n">
               <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">Surat Jalan</h6>
+                <h6 class="text-u-c p-v-sm m-a-0 m-t">BAST</h6>
                 <h3 class="m-a-0 m-l m-v">
                   <span class="text-2x">1</span>
                 </h3>
@@ -107,54 +107,12 @@
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/input-surat-jalan/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
               </div>
             </div>
           </div>
 
-          <div class="col-sm-4 pull-sm-4">
-            <div class="box">
-              <div class="box-body text-center r-t success">
-                <h6 class="text-u-c m-a-0 m-t">BAST</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">2</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah berita acara serah terima yang telah masuk
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/lihat-bast" class="btn btn-block btn-lg success">Lihat</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="box m-t-n">
-              <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">Delivery Order</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">1</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah delivery order yang telah masuk
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/lihat-delivery-order" class="btn btn-block btn-lg primary">Lihat</a>
-              </div>
-            </div>
-          </div>
+          
           
         </div>
       </div>

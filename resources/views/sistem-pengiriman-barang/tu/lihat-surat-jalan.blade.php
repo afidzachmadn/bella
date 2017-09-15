@@ -1,4 +1,4 @@
-@extends('sistem-pengiriman-barang.master.master-gudang')
+@extends('sistem-pengiriman-barang.master.master-tu')
 
 
 
@@ -12,7 +12,7 @@
                 <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
                   <i class="ion-navicon"></i>
                 </a>
-                <div class="navbar-item pull-left h5" id="pageTitle">Lihat Delivery Order</div>
+                <div class="navbar-item pull-left h5" id="pageTitle">Input Surat Jalan</div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
 
@@ -36,17 +36,17 @@
                     </div>
                   </li>
                   
-                  <li class="nav-item dropdown">
+                 <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
                         <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/gudang/profile">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/profile">
                         <span>Profile</span>
                       </a>
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/gudang/setelan">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/setelan">
                         <span>Setelan</span>
                       </a>
                       
@@ -70,8 +70,8 @@
 		
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item"><a href="{{env('APP_URL')}}/sistem-pengiriman-barang/gudang/input-delivery-order">Input delivery order</a></li>
-      <li class="breadcrumb-item active">Lihat delivery order</li>
+            <li class="breadcrumb-item"><a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/input-surat-jalan">Input surat jalan</a></li>
+			<li class="breadcrumb-item active">Lihat surat jalan</li>
 		</ol>
 		
 </div>
@@ -80,16 +80,15 @@
 <div class="col-sm-12">
       <div class="box">
         <div class="box-header">
-          <h2>List Delivery Order</h2>
+          <h2>List Surat Jalan</h2>
           <small>
-            Berikut adalah list delivery order yang telah anda inputkan, untuk mengeditnya silahkan klik tombol edit yang ada di bawah tabel.
+            Berikut adalah list surat jalan yang telah anda inputkan, untuk mengeditnya silahkan klik tombol edit yang ada di bawah tabel.
           </small>
-          <small><b>Jika tombol Lihat tidak dapat di klik, silahkan klik tombol refresh terlebih dahulu</b></small>
         </div>
         <table class="table table-striped b-t">
           <thead>
             <tr>
-              <th class="text-center">Nomor Delivery order</th>
+              <th class="text-center">Nomor Surat jalan</th>
               <th class="text-center">Lihat</th>
               
             </tr>
@@ -98,7 +97,7 @@
             <tr>
               
 
-              <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengiriman-barang/gudang/lihat-detail-delivery-order-gudang-proses')}}" method="post">
+              <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengiriman-barang/tu/lihat-detail-surat-jalan-tu-proses')}}" method="post">
               {{ csrf_field() }}
               <td>
               <p class="text-center">1</p>
@@ -129,63 +128,32 @@
   <div class="modal-dialog" id="animate">
     <div class="modal-content">
       <div class="modal-header">
-      	<h5 class="modal-title">Edit Delivery Order</h5>
+      	<h5 class="modal-title">Edit Surat Jalan</h5>
       </div>
       <div class="modal-body text-center p-lg">
-       <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengiriman-barang/gudang/edit-printlog-gudang-proses')}}" method="post">
+       <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengiriman-barang/tu/edit-surat-jalan-tu-proses')}}" method="post">
         {{ csrf_field() }}
 
             <div class="form-group">
-              <label for="exampleInputEmail1">No </label>
-              <input type="text"  name="nomor_delivery_order_yang_akan_diedit" class="form-control" id="exampleInputEmail1" placeholder="masukan nomor delivery order yang akan di edit"  required="">
-            </div>
-            <hr>
-            <hr>
-             <div class="form-group">
-              <label for="exampleInputEmail1">Kepada</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan nama kepada" required="" name="kepada">
-            </div>
-
-            <div class="form-group">
-              <label for="exampleInputEmail1">No SPPB</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan no SPPB"  required="" name="no_sppb">
-            </div>
-
-            <div class="form-group">
-              <label for="exampleInputEmail1">No Printlog</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan dasar nomor printlog" required="" name="nomor_printlog">
-            </div>
-
-            <div class="form-group">
-              <label for="exampleInputEmail1">Penyaluran Tahun Anggaran</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="tahun anggaran" required="" name="tahun_anggaran">
-            </div>
-
-            <div class="form-group">
-              <label for="exampleInputEmail1">No Dasar Permohonan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan no dasar permohonan" required="" name="no_dasar_permohonan">
-            </div>
-
-            <div class="form-group">
-                    <p>Tanggal Dasar Permohonan:</p>
+                    <p>Tanggal Surat Jalan:</p>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="datepicker-autoclose" placeholder="tahun/bulan/hari" name="tanggal_dasar_permohonan" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                        <input type="text" class="form-control" id="datepicker-autoclose" placeholder="tahun/bulan/hari" name="tanggal_surat_jalan" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
                     </div>
             </div>
 
             <div class="form-group">
-              <label for="exampleInputEmail1">No Dasar Laklog</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan no laklog" required="" name="no_dasar_laklog">
+              <label for="exampleInputEmail1">Kepada</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Kepada" required="" name="kepada">
             </div>
             
             <div class="form-group">
-              <label for="exampleInputEmail1">Dari Persediaan Kepada</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="dari persediaan kepada" required="" name="dari_persediaan_kepada">
+              <label for="exampleInputEmail1">No Kendaraan</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="no kendaraan" required="" name="no_kendaraan">
             </div>
             
             <div class="form-group">
-              <label for="exampleInputEmail1">Guna Keperluan</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="masukan guna keperluan" required="" name="guna_keperluan">
+              <label for="exampleInputEmail1">Nomor</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="nomor surat jalan" required="" name="guna_keperluan">
             </div>
             
             <div class="form-group">
@@ -194,35 +162,13 @@
             </div>
             
             <div class="form-group">
-              <label for="exampleInputEmail1">Jenis Kualitas</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="jenis kualitas" required="" name="jenis_kualitas">
+              <label for="exampleInputEmail1">Jumlah</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="jumlah barang" required="" name="jumlah_barang">
             </div>
             
             <div class="form-group">
-               <label for="exampleInputEmail1">Jumlah (Kg)</label>
-               <textarea class="form-control" rows="2" name="jumlah" placeholder="jumlah berat barang"></textarea>
-            </div>
-            
-            <div class="form-group">
-               <label for="exampleInputEmail1">Harga Satuan (Rp)</label>
-               <textarea class="form-control" rows="2" name="harga_satuan" placeholder="harga satuan"></textarea>
-            </div>
-
-            <div class="form-group">
-               <label for="exampleInputEmail1">Jumlah Harga (Rp)</label>
-               <textarea class="form-control" rows="2" name="jumlah_harga" placeholder="jumlah harga barang"></textarea>
-            </div>
-
-            <div class="form-group">
-                    <p>Berlaku Sampai Tanggal:</p>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="datepicker-autoclose2" placeholder="tahun/bulan/hari" name="berlaku_sampai_tanggal" required> <span class="input-group-addon"><i class="icon-calender"></i></span> 
-                    </div>
-            </div>
-
-            <div class="form-group">
-               <label for="exampleInputEmail1">Ketentuan</label>
-               <textarea class="form-control" rows="2" name="ketentuan" placeholder="ketentuan"></textarea>
+               <label for="exampleInputEmail1">Keterangan</label>
+               <textarea class="form-control" rows="2" name="keterangan" placeholder="keterangan"></textarea>
             </div>
         
       </div>
@@ -240,14 +186,14 @@
   <div class="modal-dialog" id="animate">
     <div class="modal-content">
       <div class="modal-header">
-      	<h5 class="modal-title">Hapus Delivery Order</h5>
+      	<h5 class="modal-title">Hapus Surat Jalan</h5>
       </div>
       <div class="modal-body text-center p-lg">
-       <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengiriman-barang/gudang/hapus-delivery-order-gudang-proses')}}" method="post">
+       <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pengiriman-barang/tu/hapus-surat-jalan-tu-proses')}}" method="post">
         {{ csrf_field() }}
             <div class="form-group">
               <label for="exampleInputEmail1">Masukan nomor</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="nomor delivery order yang akan dihapus" required="" name="no_delivery_order">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="nomor surat jalan yang akan dihapus" required="" name="no_surat_jalan">
             </div>
             
       </div>
@@ -277,5 +223,8 @@
     </div>
   </div>
 	<!-- / -->
+
+
+
 
 @endsection

@@ -12,7 +12,7 @@
                 <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
                   <i class="ion-navicon"></i>
                 </a>
-                <div class="navbar-item pull-left h5" id="pageTitle">Dashboard</div>
+                <div class="navbar-item pull-left h5" id="pageTitle">Lihat Detail BAST</div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
 
@@ -36,7 +36,7 @@
                     </div>
                   </li>
                   
-                 <li class="nav-item dropdown">
+                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
                         <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
@@ -70,101 +70,83 @@
 		
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item active">Dashboard</li>
+            <li class="breadcrumb-item"><a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/lihat-delivery-order">Lihat BAST</a></li>
+            <li class="breadcrumb-item active">Lihat detail BAST</li>
 		</ol>
 		
 </div>
 <!-- ------------------------------------------------------------- -->
 
-
-
-
 <div class="padding">
-  <div class="p-y-lg clearfix">
-    <div class="text-center">
-      <h2 class="_700 m-b">Howdy, nana</h2>
-      <h5 class="m-b-md">Berikut adalah ringkasan kerjamu</h5>
-    </div>
-  </div>
-  <div class="p-x-lg">
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <div class="row no-gutter">
-          <div class="col-sm-4 push-sm-4">
-            <div class="box m-t-n">
-              <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">Surat Jalan</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">1</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah surat jalan yang kamu inputkan
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/input-surat-jalan/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4 pull-sm-4">
-            <div class="box">
-              <div class="box-body text-center r-t success">
-                <h6 class="text-u-c m-a-0 m-t">BAST</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">2</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah berita acara serah terima yang telah masuk
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/lihat-bast" class="btn btn-block btn-lg success">Lihat</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-4">
-            <div class="box m-t-n">
-              <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">Delivery Order</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">1</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah delivery order yang telah masuk
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/lihat-delivery-order" class="btn btn-block btn-lg primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-          
-        </div>
+  <div class="col-sm-12">
+    <div class="box">
+      <div class="box-header">
+        <h2>Detail BAST Barang</h2>
+        <small>
+          Berikut adalah detail BAST barang yang anda pilih.
+        </small>
       </div>
     </div>
   </div>
 </div>
 
+<div class="padding printableArea">
+  <div class="col-sm-12">
+    <div class="box">
+      <div class="text-center"><b><u><h5>BERITA ACARA SERAH TERIMA BARANG</h5></u></b><span><p><i>Nomor:xxxxx</i></p></span></div>
+      
+      <div class="box col-sm-12 padding">
+      <p> Pada tanggal xxxxx, kami yang bertanda tangan dibawah ini:</p>
+
+      <p>1. xxxxxx jabatan xxxxxxx bertindak dan atas nama PT. Jasa Prima Logistics BULOG cabang Jawa Tengah, selanjutnya disebut pihak pertama.</p>
+      <p>2. xxxxxxx jabatan xxxxx bertindak dan atas nama Perum BULOG subdivre Wilayah I Semarang, selanjutnya disebut pihak kedua.</p>
+      <p> Untuk selanjutnya PIHAK PERTAMA dan PIHAK KEDUA secara bersama sama disebut para pihak.</p>
+      <p>Berdasarkan:</p>
+      <p>Faximile BULOG Nomor:xxxxxx tanggal xxxxx perihal xxxxxx</p>
+      <p>PIHAK PERTAMA dengan ini menyerahkan kepada PIHAK KEDUA xxxx dan PIHAK KEDUA telah menerima penyerahan dari PIHAK PERTAMA berupa:</p>
+      <p>a. Jenis barang : xxxxx</br>
+      b. Jumlah kuantum : xxxx </br>
+      c. Tanggal penyerahan : xxxx</br>
+      d. Alat angkut : xxxx</br>
+      </p>
+      <p>Demikian berita acara serah terima ini dibuat, ditandatangani dalam rangkap 2 (dua) diatas kertas bermaterai cukup dan mempunyai kekuatan hukum yang sama bagi para pihak.</p>
+      </div>
+
+      <div class="box col-sm-12 padding">
+        <div class="text-center pull-left">
+            <p>PIHAK PERTAMA</p><span><p>Yang Menyerahkan</p></span>
+        
+        <p>( xxxxxxx )</p>
+        </div>
+
+        <div class="text-center pull-right">
+            <p>PIHAK KEDUA</p><span><p>Yang menerima</p></span>
+        </br>
+        <p>( xxxxxx )</p>
+        </div>
+
+        
+        <div class="text-center" style="position:center">
+            <p>Mengetahui,</p><span><p>Subdivre Wilayah I Semarang</p></span>
+        </br>
+        <p>( xxxxx )</p>
+        </div>
+      </div>
+
+     
+
+      
+    </div>
+
+     
+     
+    
+  </div>
+  
+</div>
 
 
-
+<button id="print" class="btn btn-block success" type="button"> <span><i class="fa fa-print"></i> Print</span></button>
 
 
 
@@ -173,4 +155,6 @@
     </div>
   </div>
 	<!-- / -->
+
+
 @endsection

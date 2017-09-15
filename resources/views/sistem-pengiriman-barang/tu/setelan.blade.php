@@ -12,7 +12,7 @@
                 <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
                   <i class="ion-navicon"></i>
                 </a>
-                <div class="navbar-item pull-left h5" id="pageTitle">Dashboard</div>
+                <div class="navbar-item pull-left h5" id="pageTitle">Setelan</div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
 
@@ -36,7 +36,7 @@
                     </div>
                   </li>
                   
-                 <li class="nav-item dropdown">
+                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
                         <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
@@ -70,97 +70,58 @@
 		
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item active">Dashboard</li>
+			<li class="breadcrumb-item active">Setelan</li>
 		</ol>
 		
 </div>
 <!-- ------------------------------------------------------------- -->
 
 
-
-
-<div class="padding">
-  <div class="p-y-lg clearfix">
-    <div class="text-center">
-      <h2 class="_700 m-b">Howdy, nana</h2>
-      <h5 class="m-b-md">Berikut adalah ringkasan kerjamu</h5>
-    </div>
-  </div>
-  <div class="p-x-lg">
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <div class="row no-gutter">
-          <div class="col-sm-4 push-sm-4">
-            <div class="box m-t-n">
-              <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">Surat Jalan</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">1</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah surat jalan yang kamu inputkan
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/input-surat-jalan/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
-              </div>
+<div class="row-col">
+  
+  <div class="col-sm-9 col-lg-10 light bg">
+    <div class="tab-content pos-rlt">
+      <div class="tab-pane active" id="tab-1">
+        <div class="p-a-md b-b _600">Setelan Profile</div>
+        <form role="form" class="p-a-md col-md-6" action="{{url('/sistem-pengiriman-barang/tu/setelan-tu-proses')}}" method="post" enctype="multipart/form-data">
+          {{ csrf_field() }}
+          <div class="form-group">
+              <label>File</label>
+              
+                <input type="file" class="form-control" name="img" required="">
             </div>
+          <div class="form-group">
+            <label>Nama</label>
+            <input name="nama" type="text" class="form-control" value="" required="">
           </div>
-
-          <div class="col-sm-4 pull-sm-4">
-            <div class="box">
-              <div class="box-body text-center r-t success">
-                <h6 class="text-u-c m-a-0 m-t">BAST</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">2</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah berita acara serah terima yang telah masuk
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/lihat-bast" class="btn btn-block btn-lg success">Lihat</a>
-              </div>
-            </div>
+          <div class="form-group">
+            <label>NIK</label>
+            <input name="nik" type="text" class="form-control" value="" required="">
           </div>
-
-          <div class="col-sm-4">
-            <div class="box m-t-n">
-              <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">Delivery Order</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">1</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah delivery order yang telah masuk
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/lihat-delivery-order" class="btn btn-block btn-lg primary">Lihat</a>
-              </div>
-            </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="text" class="form-control" name="email" value="" required="">
           </div>
-          
-        </div>
+          <div class="form-group">
+            <label>No-HP</label>
+            <input type="text" class="form-control" name="no_hp" value="" required="">
+          </div>
+          <div class="form-group">
+            <label>Bagian</label>
+            <input type="text" class="form-control" name="bagian" value="" required="">
+          </div>
+          <div class="form-group">
+            <label>Jabatan</label>
+            <input type="text" class="form-control" name="jabatan" value="" required="">
+          </div>
+          <button type="submit" class="btn btn-info m-t">Update</button>
+        </form>
       </div>
-    </div>
-  </div>
-</div>
+     
+
+
+
+
 
 
 
