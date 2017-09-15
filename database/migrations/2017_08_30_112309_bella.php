@@ -15,6 +15,10 @@ class Bella extends Migration
     {
         //
     
+
+
+/*##################################### SISTEM PENGAJUAN BARANG ############################################## */
+
         Schema::create('users_pengajuan_barang', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama', 100);
@@ -98,8 +102,42 @@ class Bella extends Migration
             
            
         });
+
+/*##############################################################################################################*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*############################################### SISTEM PENGIRIMAN BARANG ########################################*/
+
+Schema::create('users_pengiriman_barang', function (Blueprint $table) {
+    $table->increments('id');
+    $table->string('nama', 100);
+    $table->string('nik',100);
+    $table->string('email', 100)->unique();
+    $table->string('no_hp',100)->nullable();
+    $table->string('bagian',100)->nullable();
+    $table->string('jabatan',100)->nullable();
+    $table->string('password', 500);
+    $table->string('img_url', 100)->default('users.png');
+    $table->integer('jumlah_surat_perintah_yang_terkirim')->default(0);
+    $table->integer('jumlah_printlog_yang_terkirim')->default(0);
+    $table->integer('jumlah_bast_yang_terkirim')->default(0);
     
     
+});
+    
+/*#####################################################################################################################*/
     }
 
     /**

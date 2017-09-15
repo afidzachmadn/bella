@@ -200,7 +200,7 @@ Route::post('/sistem-pengajuan-barang/gudang/lihat-detail-printlog-gudang-proses
 //------bast---------//
 Route::get('/sistem-pengajuan-barang/gudang/lihat-bast',"PengajuanBarang@lihat_bast_gudang");
 
-Route::post('/sistem-pengajuan-barang/gudang/lihat-detail-bast-korlap-proses', "PengajuanBarang@lihat_detail_bast_gudang_proses");
+Route::post('/sistem-pengajuan-barang/gudang/lihat-detail-bast-gudang-proses', "PengajuanBarang@lihat_detail_bast_gudang_proses");
 
 
 //-----profile-----//
@@ -210,6 +210,80 @@ Route::get('/sistem-pengajuan-barang/gudang/setelan',"PengajuanBarang@setelan_gu
 Route::post('/sistem-pengajuan-barang/gudang/setelan-gudang-proses', "PengajuanBarang@setelan_gudang_proses");
 /*------------------------------------------------------------------------------------*/
 
+
+/*##################################################################################################################*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*########################################## SISTEM PENGIRIMAN BARANG #################################################*/
+
+
+
+
+//-------------------------------------------------GUDANG-----------------------------------------------------------//
+
+Route::get('/sistem-pengiriman-barang/gudang/dashboard',"PengirimanBarang@dashboard_gudang");
+
+//------delivery order-------//
+Route::get('/sistem-pengiriman-barang/gudang/input-delivery-order',"PengirimanBarang@input_delivery_order_gudang");
+Route::get('/sistem-pengiriman-barang/gudang/input-delivery-order/lihat-delivery-order',"PengirimanBarang@lihat_delivery_order_gudang");
+
+Route::post('/sistem-pengiriman-barang/gudang/edit-delivery-order-gudang-proses', "PengirimanBarang@edit_delivery_order_gudang_proses");
+Route::post('/sistem-pengiriman-barang/gudang/hapus-delivery-order-gudang-proses', "PengirimanBarang@hapus_delivery_order_gudang_proses");
+
+Route::post('/sistem-pengiriman-barang/gudang/lihat-detail-delivery-order-gudang-proses', "PengirimanBarang@lihat_detail_delivery_order_gudang_proses");
+
+
+//------bast---------//
+Route::get('/sistem-pengiriman-barang/gudang/input-bast',"PengirimanBarang@input_bast_gudang");
+Route::get('/sistem-pengiriman-barang/gudang/input-bast/lihat-bast',"PengirimanBarang@lihat_bast_gudang");
+
+Route::post('/sistem-pengiriman-barang/gudang/edit-bast-gudang-proses', "PengirimanBarang@edit_bast_gudang_proses");
+Route::post('/sistem-pengiriman-barang/gudang/hapus-bast-gudang-proses', "PengirimanBarang@hapus_bast_gudang_proses");
+
+Route::post('/sistem-pengiriman-barang/gudang/lihat-detail-bast-gudang-proses', "PengirimanBarang@lihat_detail_bast_gudang_proses");
+
+
+//-----profile-----//
+Route::get('/sistem-pengiriman-barang/gudang/profile',"PengirimanBarang@profile_gudang");
+
+Route::get('/sistem-pengiriman-barang/gudang/setelan',"PengirimanBarang@setelan_gudang");
+Route::post('/sistem-pengiriman-barang/gudang/setelan-gudang-proses', "PengirimanBarang@setelan_gudang_proses");
+/*--------------------------------------------------------------------------------------------------------------------*/
 
 
 

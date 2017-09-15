@@ -192,31 +192,31 @@
           <div class="form-group">
               <label>File</label>
               
-                <input type="file" class="form-control" name="img">
+                <input type="file" class="form-control" name="img" required="">
             </div>
           <div class="form-group">
             <label>Nama</label>
-            <input name="nama" type="text" class="form-control" value="{{$profile -> nama}}">
+            <input name="nama" type="text" class="form-control" value="{{$profile -> nama}}" required="">
           </div>
           <div class="form-group">
             <label>NIK</label>
-            <input name="nik" type="text" class="form-control" value="{{$profile -> nik}}">
+            <input name="nik" type="text" class="form-control" value="{{$profile -> nik}}" required="">
           </div>
           <div class="form-group">
             <label>E-mail</label>
-            <input type="text" class="form-control" name="email" value="{{$profile -> email}}">
+            <input type="text" class="form-control" name="email" value="{{$profile -> email}}" required="">
           </div>
           <div class="form-group">
             <label>No-HP</label>
-            <input type="text" class="form-control" name="no_hp" value="{{$profile -> no_hp}}">
+            <input type="text" class="form-control" name="no_hp" value="{{$profile -> no_hp}}" required="">
           </div>
           <div class="form-group">
             <label>Bagian</label>
-            <input type="text" class="form-control" name="bagian" value="{{$profile -> bagian}}">
+            <input type="text" class="form-control" name="bagian" value="{{$profile -> bagian}}" required="">
           </div>
           <div class="form-group">
             <label>Jabatan</label>
-            <input type="text" class="form-control" name="jabatan" value="{{$profile -> jabatan}}">
+            <input type="text" class="form-control" name="jabatan" value="{{$profile -> jabatan}}" required="">
           </div>
           <button type="submit" class="btn btn-info m-t">Update</button>
         </form>

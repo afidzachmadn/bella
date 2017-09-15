@@ -100,7 +100,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/input-printlog" >
+                    <a href="{{env('APP_URL')}}/sistem-pengajuan-barang/tu/input-print-log" >
                       <span class="nav-text">Input print-log</span>
                     </a>
                   </li>

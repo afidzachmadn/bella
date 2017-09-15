@@ -28,30 +28,112 @@ public function bacadatabase(Request $request) {
     $usersTable = DB::table('users_pengajuan_barang');
     //cek username dan pass di database
     $usercheck= $usersTable->where('email', $email)->first();
-    $get_jabatan = $usercheck -> jabatan;
+   
     //dd($usercheck);
     //dd($get_jabatan);
 
 
-    if($get_jabatan == 'tata usaha' || $get_jabatan == 'Tata Usaha'){
+    
         if($usercheck != null){
+            $get_jabatan = $usercheck -> jabatan;
+            if($get_jabatan == 'tata usaha' || $get_jabatan == 'Tata Usaha'){
 
     
-            $decrypt = decrypt($usercheck->password);
+                $decrypt = decrypt($usercheck->password);
         
-            if($password == $decrypt) {
-                $request->session()->put('login', true);
-                //$request->session()->put('role', 'karyawan');
-                $request->session()->put('name', $usercheck->nama);
-                $request->session()->put('id', $usercheck->id);
-                $request->session()->put('img_url', $usercheck->img_url);
+                if($password == $decrypt) {
+                    $request->session()->put('login', true);
+                    //$request->session()->put('role', 'karyawan');
+                    $request->session()->put('name', $usercheck->nama);
+                    $request->session()->put('id', $usercheck->id);
+                    $request->session()->put('img_url', $usercheck->img_url);
             
-                return redirect()->action('PengajuanBarang@dashboard_tu');
+                    return redirect()->action('PengajuanBarang@dashboard_tu');
+                }
+
+                else {
+                return redirect()->action('LoginPengajuanBarang@login');
+                }
+            }
+            
+            elseif($get_jabatan == 'kepala cabang' || $get_jabatan == 'Kepala Cabang'){
+                if($usercheck != null){
+        
+            
+                    $decrypt = decrypt($usercheck->password);
+                
+                    if($password == $decrypt) {
+                        $request->session()->put('login', true);
+                        //$request->session()->put('role', 'karyawan');
+                        $request->session()->put('name', $usercheck->nama);
+                        $request->session()->put('id', $usercheck->id);
+                        $request->session()->put('img_url', $usercheck->img_url);
+                    
+                        return redirect()->action('PengajuanBarang@dashboard_kepala_cabang');
+                    }
+        
+                    else {
+                        return redirect()->action('LoginPengajuanBarang@login');
+                    }
+                }
+                
+                else{
+                    return redirect()->action('LoginPengajuanBarang@login');
+                }
             }
 
-            else {
-                return redirect()->action('LoginPengajuanBarang@login');
+            elseif($get_jabatan == 'koordinasi lapangan' || $get_jabatan == 'Koordinasi Lapangan'){
+                if($usercheck != null){
+        
+            
+                    $decrypt = decrypt($usercheck->password);
+                
+                    if($password == $decrypt) {
+                        $request->session()->put('login', true);
+                        //$request->session()->put('role', 'karyawan');
+                        $request->session()->put('name', $usercheck->nama);
+                        $request->session()->put('id', $usercheck->id);
+                        $request->session()->put('img_url', $usercheck->img_url);
+                    
+                        return redirect()->action('PengajuanBarang@dashboard_korlap');
+                    }
+        
+                    else {
+                        return redirect()->action('LoginPengajuanBarang@login');
+                    }
+                }
+                
+                else{
+                    return redirect()->action('LoginPengajuanBarang@login');
+                }
             }
+        
+            elseif($get_jabatan == 'gudang' || $get_jabatan == 'Gudang'){
+                if($usercheck != null){
+        
+            
+                    $decrypt = decrypt($usercheck->password);
+                
+                    if($password == $decrypt) {
+                        $request->session()->put('login', true);
+                        //$request->session()->put('role', 'karyawan');
+                        $request->session()->put('name', $usercheck->nama);
+                        $request->session()->put('id', $usercheck->id);
+                        $request->session()->put('img_url', $usercheck->img_url);
+                    
+                        return redirect()->action('PengajuanBarang@dashboard_gudang');
+                    }
+        
+                    else {
+                        return redirect()->action('LoginPengajuanBarang@login');
+                    }
+                }
+                
+                else{
+                    return redirect()->action('LoginPengajuanBarang@login');
+                }
+            }
+
         }
         
         else{
@@ -59,89 +141,10 @@ public function bacadatabase(Request $request) {
         }
     }
 
-    elseif($get_jabatan == 'kepala cabang' || $get_jabatan == 'Kepala Cabang'){
-        if($usercheck != null){
+    
 
     
-            $decrypt = decrypt($usercheck->password);
-        
-            if($password == $decrypt) {
-                $request->session()->put('login', true);
-                //$request->session()->put('role', 'karyawan');
-                $request->session()->put('name', $usercheck->nama);
-                $request->session()->put('id', $usercheck->id);
-                $request->session()->put('img_url', $usercheck->img_url);
-            
-                return redirect()->action('PengajuanBarang@dashboard_kepala_cabang');
-            }
-
-            else {
-                return redirect()->action('LoginPengajuanBarang@login');
-            }
-        }
-        
-        else{
-            return redirect()->action('LoginPengajuanBarang@login');
-        }
-    }
-
-    elseif($get_jabatan == 'koordinasi lapangan' || $get_jabatan == 'Koordinasi Lapangan'){
-        if($usercheck != null){
-
     
-            $decrypt = decrypt($usercheck->password);
-        
-            if($password == $decrypt) {
-                $request->session()->put('login', true);
-                //$request->session()->put('role', 'karyawan');
-                $request->session()->put('name', $usercheck->nama);
-                $request->session()->put('id', $usercheck->id);
-                $request->session()->put('img_url', $usercheck->img_url);
-            
-                return redirect()->action('PengajuanBarang@dashboard_korlap');
-            }
-
-            else {
-                return redirect()->action('LoginPengajuanBarang@login');
-            }
-        }
-        
-        else{
-            return redirect()->action('LoginPengajuanBarang@login');
-        }
-    }
-
-    elseif($get_jabatan == 'gudang' || $get_jabatan == 'Gudang'){
-        if($usercheck != null){
-
-    
-            $decrypt = decrypt($usercheck->password);
-        
-            if($password == $decrypt) {
-                $request->session()->put('login', true);
-                //$request->session()->put('role', 'karyawan');
-                $request->session()->put('name', $usercheck->nama);
-                $request->session()->put('id', $usercheck->id);
-                $request->session()->put('img_url', $usercheck->img_url);
-            
-                return redirect()->action('PengajuanBarang@dashboard_gudang');
-            }
-
-            else {
-                return redirect()->action('LoginPengajuanBarang@login');
-            }
-        }
-        
-        else{
-            return redirect()->action('LoginPengajuanBarang@login');
-        }
-    }
-
-    
-}
-
-
-
 
     
 }
