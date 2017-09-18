@@ -1,4 +1,4 @@
-@extends('sistem-pengiriman-barang.master.master-penerima-barang')
+@extends('sistem-pelaporan-barang.master.master-korlap')
 
 
 
@@ -12,7 +12,7 @@
                 <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
                   <i class="ion-navicon"></i>
                 </a>
-                <div class="navbar-item pull-left h5" id="pageTitle">Dashboard</div>
+                <div class="navbar-item pull-left h5" id="pageTitle">Lihat BAST</div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
 
@@ -36,17 +36,17 @@
                     </div>
                   </li>
                   
-                 <li class="nav-item dropdown">
+                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
                         <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/profile">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pelaporan-barang/korlap/profile">
                         <span>Profile</span>
                       </a>
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/setelan">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pelaporan-barang/korlap/setelan">
                         <span>Setelan</span>
                       </a>
                       
@@ -70,55 +70,65 @@
 		
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item active">Dashboard</li>
+      <li class="breadcrumb-item active">Lihat BAST</li>
 		</ol>
 		
 </div>
 <!-- ------------------------------------------------------------- -->
-
-
-
-
 <div class="padding">
-  <div class="p-y-lg clearfix">
-    <div class="text-center">
-      <h2 class="_700 m-b">Howdy, nana</h2>
-      <h5 class="m-b-md">Berikut adalah ringkasan informasi untuk kamu</h5>
-    </div>
-  </div>
-  <div class="p-x-lg">
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <div class="row no-gutter">
-          <div class="col-sm-4 push-sm-4">
-            <div class="box m-t-n">
-              <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">BAST</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">1</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah BAST yang masuk
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-
-          
-          
+<div class="col-sm-12">
+      <div class="box">
+        <div class="box-header">
+          <h2>List BAST</h2>
+          <small>
+            Berikut adalah list BAST yang masuk.
+          </small>
+          </small>
+          <small><b>Jika tombol Lihat tidak dapat di klik, silahkan klik tombol refresh terlebih dahulu</b></small>
         </div>
+        <table class="table table-striped b-t">
+          <thead>
+            <tr>
+              <th class="text-center">Nomor</th>
+              <th class="text-center">Lihat PDF</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              
+
+              <form role="form" class="form-horizontal form-material" id="loginform" action="{{url('/sistem-pelaporan-barang/korlap/lihat-detail-bast-korlap-proses')}}" method="post">
+              {{ csrf_field() }}
+              <td>
+              <p class="text-center">1</p>
+              <input style="visibility:hidden" type="text" class="form-control text-center" id="exampleInputEmail1" required="" name="no" value="1"></td>
+              <td class="text-center"><button type="submit" class="btn btn-block danger">Lihat</button></td>
+              </form>
+             
+            </tr>
+           
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
+  <a href="{{env('APP_URL')}}/sistem-pelaporan-barang/korlap/lihat-bast"><button class="btn btn-block success">Refresh</button></a>
+  </br>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -131,4 +141,5 @@
     </div>
   </div>
 	<!-- / -->
+
 @endsection

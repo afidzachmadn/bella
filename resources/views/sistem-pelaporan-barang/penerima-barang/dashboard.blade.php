@@ -1,4 +1,4 @@
-@extends('sistem-pengiriman-barang.master.master-penerima-barang')
+@extends('sistem-pelaporan-barang.master.master-penerima-barang')
 
 
 
@@ -43,10 +43,10 @@
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/profile">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pelaporan-barang/penerima-barang/profile">
                         <span>Profile</span>
                       </a>
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/setelan">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pelaporan-barang/penerima-barang/setelan">
                         <span>Setelan</span>
                       </a>
                       
@@ -83,7 +83,7 @@
   <div class="p-y-lg clearfix">
     <div class="text-center">
       <h2 class="_700 m-b">Howdy, nana</h2>
-      <h5 class="m-b-md">Berikut adalah ringkasan informasi untuk kamu</h5>
+      <h5 class="m-b-md">Berikut adalah ringkasan kerjamu</h5>
     </div>
   </div>
   <div class="p-x-lg">
@@ -102,12 +102,12 @@
                 
                 <li class="list-item">
                   <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah BAST yang masuk
+                    <i class="text-danger m-r-xs"></i> Jumlah BAST yang kamu inputkan
                   </div>
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-pelaporan-barang/penerima-barang/bast" class="btn btn-block btn-lg primary">Lihat</a>
               </div>
             </div>
           </div>

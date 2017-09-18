@@ -1,4 +1,4 @@
-@extends('sistem-pengiriman-barang.master.master-penerima-barang')
+@extends('sistem-keuangan-barang.master.master-kepala-cabang')
 
 
 
@@ -12,7 +12,7 @@
                 <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
                   <i class="ion-navicon"></i>
                 </a>
-                <div class="navbar-item pull-left h5" id="pageTitle">Dashboard</div>
+                <div class="navbar-item pull-left h5" id="pageTitle">Lihat Detail Surat Tagihan </div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
 
@@ -36,17 +36,17 @@
                     </div>
                   </li>
                   
-                 <li class="nav-item dropdown">
+                  <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
                         <img src="{{env('APP_URL')}}/storage/foto/{{Session::get('img_url')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/profile">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-keuangan-barang/kepala-cabang/profile">
                         <span>Profile</span>
                       </a>
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/setelan">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-keuangan-barang/kepala-cabang/setelan">
                         <span>Setelan</span>
                       </a>
                       
@@ -70,59 +70,77 @@
 		
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item active">Dashboard</li>
+            <li class="breadcrumb-item"><a href="{{env('APP_URL')}}/sistem-keuangan-barang/kepala-cabang/input-surat-penagihan/lihat-surat-penagihan">Lihat surat penagihan</a></li>
+            <li class="breadcrumb-item active">Lihat detail surat penagihan</li>
 		</ol>
 		
 </div>
 <!-- ------------------------------------------------------------- -->
 
-
-
-
 <div class="padding">
-  <div class="p-y-lg clearfix">
-    <div class="text-center">
-      <h2 class="_700 m-b">Howdy, nana</h2>
-      <h5 class="m-b-md">Berikut adalah ringkasan informasi untuk kamu</h5>
-    </div>
-  </div>
-  <div class="p-x-lg">
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <div class="row no-gutter">
-          <div class="col-sm-4 push-sm-4">
-            <div class="box m-t-n">
-              <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">BAST</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">1</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah BAST yang masuk
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-
-          
-          
-        </div>
+  <div class="col-sm-12">
+    <div class="box">
+      <div class="box-header">
+        <h2>Detail Surat Penagihan</h2>
+        <small>
+          Berikut adalah detail surat penagihan barang yang anda pilih.
+        </small>
       </div>
     </div>
   </div>
 </div>
 
+<div class="padding printableArea">
+  <div class="col-sm-12">
+    <div class="box">
+      
+      
+      <div class="box col-sm-12 padding">
+      <p>Semarang, xxxxxx</p>
+      <br>
+      <br>
+      <p>Nomor surat : xxxxx</p>
+      <p>Perihal : xxxxx</p>
+      <p>lampiran : xxxxx</p>
+      <br>
+      <br>
+
+      <p> Kepada yang terhormat, xxxxxx:</p>
+      <p> Menunjuk :</p>
+      <p>1. Nomor Printlog BULOG : xxxxxxx tanggal xxxx</p>
+      <p>2. Nomor Intruksi Angkutan (Inang) : xxxxxx tanggal xxxxx</p>
+      <p>3. Nomor Pelaksanaan Logistik (Laklog) : xxxx tanggal xxxx</p>
+      <p>4. Kontrak jasa angkut antara Perum BULOG dengan PT. Jasa Prima Logistics No KJL-13/11010-03/2017 tanggal xxxxx</p>
+      <br>
+      <p>Bersama ini disampaikan hal-hal sebagai berikut :</p>
+      <p>A. Pekerjaan angkutan xxxxxx tujuan xxxx nomor-inang:xxxxxx tanggal xxxxx sebanyak xxxxx biaya pelaksanaan xxxxx.</p>
+      <p>B. Sehubungan dengan hal tersebut diatas, dimohon biaya pekerjaaan tersebut dapat di transfer ke Bank BRI a/n PT.JPLB dengan nomor rekening 0206.01.00464430.7.
+      <br>
+      <p><b>Demikian disampaikan untuk menjadi periksa dan atas perhatiannya diucapkan terimakasih.
+      </b></p>
+      <div class="box col-sm-12 padding">
+        
+
+        <div class="text-center pull-right">
+            <p>Kepala Cabang</p>
+        </div>
+      </div>
+
+     
+
+      
+    </div>
+
+     
+     
+    
+  </div>
+  </div>
+  
+</div>
 
 
-
+<button id="print" class="btn btn-block success" type="button"> <span><i class="fa fa-print"></i> Print</span></button>
 
 
 
@@ -131,4 +149,6 @@
     </div>
   </div>
 	<!-- / -->
-@endsection
+
+
+@endsection 

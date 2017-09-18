@@ -1,5 +1,4 @@
-@extends('sistem-pengiriman-barang.master.master-penerima-barang')
-
+@extends('sistem-pelaporan-barang.master.master-penerima-barang')
 
 
 
@@ -12,7 +11,7 @@
                 <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
                   <i class="ion-navicon"></i>
                 </a>
-                <div class="navbar-item pull-left h5" id="pageTitle">Dashboard</div>
+                <div class="navbar-item pull-left h5" id="pageTitle">Upload BAST</div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
 
@@ -43,10 +42,10 @@
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/profile">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pelaporan-barang/penerima-barang/profile">
                         <span>Profile</span>
                       </a>
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/setelan">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pelaporan-barang/penerima-barang/setelan">
                         <span>Setelan</span>
                       </a>
                       
@@ -70,7 +69,7 @@
 		
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item active">Dashboard</li>
+			<li class="breadcrumb-item active">Input BAST</li>
 		</ol>
 		
 </div>
@@ -80,46 +79,20 @@
 
 
 <div class="padding">
-  <div class="p-y-lg clearfix">
-    <div class="text-center">
-      <h2 class="_700 m-b">Howdy, nana</h2>
-      <h5 class="m-b-md">Berikut adalah ringkasan informasi untuk kamu</h5>
+  <p class="m-b-md"><strong>Upload BAST</strong> <a href="http://www.dropzonejs.com/" target="blank"><i class="fa fa-link text-muted"></i></a></p>
+  <p class="text-muted">Silahkan upload berkas BAST yang telah bertanda tangan lengkap dengan format (.pdf)</p>
+  <p class="text-muted"><b>Jika file upload berhenti atau gagal, silahkan klik tombol refresh</b></p>
+  <form action="api/dropzone" class="dropzone">
+    <div class="dz-message" data-ui-jp="dropzone" data-ui-options="{ url: 'api/dropzone' }">
+        <h4 class="m-t-lg m-b-md">Seret file disini atau klik untuk mengupload.</h4>
     </div>
-  </div>
-  <div class="p-x-lg">
-    <div class="row">
-      <div class="col-lg-10 offset-lg-1">
-        <div class="row no-gutter">
-          <div class="col-sm-4 push-sm-4">
-            <div class="box m-t-n">
-              <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">BAST</h6>
-                <h3 class="m-a-0 m-l m-v">
-                  <span class="text-2x">1</span>
-                </h3>
-              </div>
-              <ul class="list b-t b-b m-a-0 no-radius">
-                
-                <li class="list-item">
-                  <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah BAST yang masuk
-                  </div>
-                </li>
-              </ul>
-              <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
-              </div>
-            </div>
-          </div>
-
-          
-          
-        </div>
-      </div>
-    </div>
-  </div>
+  </form>
+  <br>
+   <a href="{{env('APP_URL')}}/sistem-pelaporan-barang/penerima-barang/input-bast"><button class="btn btn-block success">Refresh</button></a>
+   <br>
+   <br>
+   <a href="{{env('APP_URL')}}/sistem-pelaporan-barang/penerima-barang/input-bast/lihat-bast"><button class="btn btn-block danger">Lihat BAST</button></a>
 </div>
-
 
 
 

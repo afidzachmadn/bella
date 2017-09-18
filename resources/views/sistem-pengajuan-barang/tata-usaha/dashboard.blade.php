@@ -321,7 +321,7 @@
   <script src="{{env('APP_URL')}}/scripts/ui-scroll-to.js"></script>
   <script src="{{env('APP_URL')}}/scripts/ui-toggle-class.js"></script>
   <script src="{{env('APP_URL')}}/scripts/ui-taburl.js"></script>
-  <script src="{{env('APP_URL')}}/scripts/app.js"></script> 
+ 
   <script src="{{env('APP_URL')}}/scripts/ajax.js"></script>
 <!-- endbuild -->
 <!-- Plugin JavaScript -->

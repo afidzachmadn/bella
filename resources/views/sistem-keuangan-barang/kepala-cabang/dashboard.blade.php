@@ -1,4 +1,4 @@
-@extends('sistem-pengiriman-barang.master.master-penerima-barang')
+@extends('sistem-keuangan-barang.master.master-kepala-cabang')
 
 
 
@@ -43,10 +43,10 @@
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/profile">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-keuangan-barang/kepala-cabang/profile">
                         <span>Profile</span>
                       </a>
-                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/setelan">
+                      <a class="dropdown-item" href="{{env('APP_URL')}}/sistem-keuangan-barang/kepala-cabang/setelan">
                         <span>Setelan</span>
                       </a>
                       
@@ -83,7 +83,7 @@
   <div class="p-y-lg clearfix">
     <div class="text-center">
       <h2 class="_700 m-b">Howdy, nana</h2>
-      <h5 class="m-b-md">Berikut adalah ringkasan informasi untuk kamu</h5>
+      <h5 class="m-b-md">Berikut adalah beberapa ringkasan informasi untuk anda</h5>
     </div>
   </div>
   <div class="p-x-lg">
@@ -93,7 +93,7 @@
           <div class="col-sm-4 push-sm-4">
             <div class="box m-t-n">
               <div class="box-body text-center r-t primary">
-                <h6 class="text-u-c p-v-sm m-a-0 m-t">BAST</h6>
+                <h6 class="text-u-c p-v-sm m-a-0 m-t">Surat Penagihan</h6>
                 <h3 class="m-a-0 m-l m-v">
                   <span class="text-2x">1</span>
                 </h3>
@@ -102,15 +102,17 @@
                 
                 <li class="list-item">
                   <div class="list-body">
-                    <i class="text-danger m-r-xs"></i> Jumlah BAST yang masuk
+                    <i class="text-danger m-r-xs"></i> Jumlah surat penagihan yang masuk
                   </div>
                 </li>
               </ul>
               <div class="text-center p-a-md">
-                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/penerima-barang/lihat-surat-jalan" class="btn btn-block btn-lg primary">Lihat</a>
+                <a href="{{env('APP_URL')}}/sistem-keuangan-barang/kepala-cabang/lihat-surat-penagihan" class="btn btn-block btn-lg primary">Lihat</a>
               </div>
             </div>
           </div>
+
+          
 
           
           

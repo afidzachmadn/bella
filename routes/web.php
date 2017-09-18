@@ -407,6 +407,7 @@ Route::get('/sistem-pengiriman-barang/penerima-barang/lihat-bast',"PengirimanBar
 Route::post('/sistem-pengiriman-barang/penerima-barang/lihat-detail-bast-penerima-barang-proses', "PengirimanBarang@lihat_detail_bast_penerima_barang_proses");
 
 //---------------------------------------------------------------------------------------------------------------------//
+/*#######################################################################################################################*/
 
 
 
@@ -414,6 +415,196 @@ Route::post('/sistem-pengiriman-barang/penerima-barang/lihat-detail-bast-penerim
 
 
 
+
+
+
+
+
+
+/*########################################## SISTEM PELAPORAN #################################################*/
+
+
+
+
+//---------------------------------------------------TU--------------------------------------------------------------//
+
+Route::get('/sistem-pelaporan-barang/tu/dashboard',"PelaporanBarang@dashboard_tu");
+
+//-----profile-----//
+Route::get('/sistem-pelaporan-barang/tu/profile',"PelaporanBarang@profile_tu");
+
+Route::get('/sistem-pelaporan-barang/tu/setelan',"PelaporanBarang@setelan_tu");
+Route::post('/sistem-pelaporan-barang/tu/setelan-tu-proses', "PelaporanBarang@setelan_tu_proses");
+
+//-----lihat only laporan kegiatan----------//
+
+Route::get('/sistem-pelaporan-barang/tu/lihat-laporan-kegiatan',"PelaporanBarang@lihat_laporan_kegiatan_tu");
+
+Route::post('/sistem-pelaporan-barang/tu/lihat-detail-laporan-kegiatan-tu-proses', "PelaporanBarang@lihat_detail_laporan_kegiatan_tu_proses");
+
+
+//-----lihat only bast----------//
+
+Route::get('/sistem-pelaporan-barang/tu/lihat-bast',"PelaporanBarang@lihat_bast_tu");
+
+Route::post('/sistem-pelaporan-barang/tu/lihat-detail-bast-tu-proses', "PelaporanBarang@lihat_detail_bast_tu_proses");
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+
+
+//---------------------------------------------------Kepala Cabang----------------------------------------------------//
+
+Route::get('/sistem-pelaporan-barang/kepala-cabang/dashboard',"PelaporanBarang@dashboard_kepala_cabang");
+
+//-----profile-----//
+Route::get('/sistem-pelaporan-barang/kepala-cabang/profile',"PelaporanBarang@profile_kepala_cabang");
+
+Route::get('/sistem-pelaporan-barang/kepala-cabang/setelan',"PelaporanBarang@setelan_kepala_cabang");
+Route::post('/sistem-pelaporan-barang/kepala-cabang/setelan-kepala-cabang-proses', "PelaporanBarang@setelan_kepala_cabang_proses");
+
+
+//-----lihat only laporan kegiatan----------//
+
+Route::get('/sistem-pelaporan-barang/kepala-cabang/lihat-laporan-kegiatan',"PelaporanBarang@lihat_laporan_kegiatan_kepala_cabang");
+
+Route::post('/sistem-pelaporan-barang/kepala-cabang/lihat-detail-laporan-kegiatan-kepala-cabang-proses', "PelaporanBarang@lihat_detail_laporan_kegiatan_kepala_cabang_proses");
+
+
+//-----lihat only bast----------//
+
+Route::get('/sistem-pelaporan-barang/kepala-cabang/lihat-bast',"PelaporanBarang@lihat_bast_kepala_cabang");
+
+Route::post('/sistem-pelaporan-barang/kepala-cabang/lihat-detail-bast-kepala-cabang-proses', "PelaporanBarang@lihat_detail_bast_kepala_cabang_proses");
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+//---------------------------------------------------Korlap--------------------------------------------------------------//
+
+Route::get('/sistem-pelaporan-barang/korlap/dashboard',"PelaporanBarang@dashboard_korlap");
+
+//-----profile-----//
+Route::get('/sistem-pelaporan-barang/korlap/profile',"PelaporanBarang@profile_korlap");
+
+Route::get('/sistem-pelaporan-barang/korlap/setelan',"PelaporanBarang@setelan_korlap");
+Route::post('/sistem-pelaporan-barang/korlap/setelan-korlap-proses', "PelaporanBarang@setelan_korlap_proses");
+
+//-----laporan kegiatan----------//
+
+Route::get('/sistem-pelaporan-barang/korlap/input-laporan-kegiatan',"PelaporanBarang@input_laporan_kegiatan_korlap");
+Route::get('/sistem-pelaporan-barang/korlap/input-laporan-kegiatan/lihat-laporan-kegiatan',"PelaporanBarang@lihat_laporan_kegiatan_korlap");
+
+Route::post('/sistem-pelaporan-barang/korlap/edit-laporan-kegiatan-korlap-proses', "PelaporanBarang@edit_laporan_kegiatan_korlap_proses");
+Route::post('/sistem-pelaporan-barang/korlap/hapus-laporan-kegiatan-korlap-proses', "PelaporanBarang@hapus_laporan_kegiatan_korlap_proses");
+
+Route::post('/sistem-pelaporan-barang/korlap/lihat-detail-laporan-kegiatan-korlap-proses', "PelaporanBarang@lihat_detail_laporan_kegiatan_korlap_proses");
+
+
+//-----lihat only bast----------//
+
+Route::get('/sistem-pelaporan-barang/korlap/lihat-bast',"PelaporanBarang@lihat_bast_korlap");
+
+Route::post('/sistem-pelaporan-barang/korlap/lihat-detail-bast-korlap-proses', "PelaporanBarang@lihat_detail_bast_korlap_proses");
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+
+
+
+//---------------------------------------------------Penerima Barang---------------------------------------------------//
+
+Route::get('/sistem-pelaporan-barang/penerima-barang/dashboard',"PelaporanBarang@dashboard_penerima_barang");
+
+//-----profile-----//
+Route::get('/sistem-pelaporan-barang/penerima-barang/profile',"PelaporanBarang@profile_penerima_barang");
+
+Route::get('/sistem-pelaporan-barang/penerima-barang/setelan',"PelaporanBarang@setelan_penerima_barang");
+Route::post('/sistem-pelaporan-barang/penerima-barang/setelan-penerima-barang-proses', "PelaporanBarang@setelan_penerima_barang_proses");
+
+
+
+
+
+//-----lihat bast----------//
+
+Route::get('/sistem-pelaporan-barang/penerima-barang/input-bast',"PelaporanBarang@input_bast_penerima_barang");
+Route::get('/sistem-pelaporan-barang/penerima-barang/input-bast/lihat-bast',"PelaporanBarang@lihat_bast_penerima_barang");
+
+Route::post('/sistem-pelaporan-barang/penerima-barang/edit-bast-penerima-barang-proses', "PelaporanBarang@edit_bast_penerima_barang_proses");
+Route::post('/sistem-pelaporan-barang/penerima-barang/hapus-bast-penerima-barang-proses', "PelaporanBarang@hapus_bast_penerima_barang_proses");
+
+Route::post('/sistem-pelaporan-barang/penerima-barang/lihat-detail-bast-penerima-barang-proses', "PelaporanBarang@lihat_detail_bast_penerima_barang_proses");
+
+
+//---------------------------------------------------------------------------------------------------------------------//
+
+/*#######################################################################################################################*/
+
+
+
+
+
+
+
+
+/*###################################################SISTEM KEUANGAN############################################*/
+
+
+
+//---------------------------------------------keuangan--------------------------------------------------------------//
+
+Route::get('/sistem-keuangan-barang/keuangan/dashboard',"KeuanganBarang@dashboard_keuangan");
+
+//-----profile-----//
+Route::get('/sistem-keuangan-barang/keuangan/profile',"KeuanganBarang@profile_keuangan");
+
+Route::get('/sistem-keuangan-barang/keuangan/setelan',"KeuanganBarang@setelan_keuangan");
+Route::post('/sistem-keuangan-barang/keuangan/setelan-keuangan-proses', "KeuanganBarang@setelan_keuangan_proses");
+
+
+//-----surat penagihan--------//
+Route::get('/sistem-keuangan-barang/keuangan/input-surat-penagihan',"KeuanganBarang@input_surat_penagihan_keuangan");
+
+Route::get('/sistem-keuangan-barang/keuangan/input-surat-penagihan/lihat-surat-penagihan',"KeuanganBarang@lihat_surat_penagihan_keuangan");
+Route::post('/sistem-keuangan-barang/keuangan/lihat-detail-surat-penagihan-keuangan-proses', "KeuanganBarang@lihat_detail_surat_penagihan_keuangan_proses");
+
+//-----------------lihat only bast-----------------------------//
+Route::get('/sistem-keuangan-barang/keuangan/lihat-bast',"KeuanganBarang@lihat_bast_keuangan");
+
+Route::post('/sistem-keuangan-barang/keuangan/lihat-detail-bast-keuangan-proses', "KeuanganBarang@lihat_detail_bast_keuangan_proses");
+//-------------------------------------------------------------------------------------------------------------//
+
+
+
+
+
+//--------------------------------------------kepala cabang-------------------------------------------------------//
+
+Route::get('/sistem-keuangan-barang/kepala-cabang/dashboard',"KeuanganBarang@dashboard_kepala_cabang");
+
+//-----profile-----//
+Route::get('/sistem-keuangan-barang/kepala-cabang/profile',"KeuanganBarang@profile_kepala_cabang");
+
+Route::get('/sistem-keuangan-barang/kepala-cabang/setelan',"KeuanganBarang@setelan_kepala_cabang");
+Route::post('/sistem-keuangan-barang/kepala-cabang/setelan-kepala-cabang-proses', "KeuanganBarang@setelan_kepala_cabang_proses");
+
+
+//-----surat penagihan--------//
+
+Route::get('/sistem-keuangan-barang/kepala-cabang/lihat-surat-penagihan',"KeuanganBarang@lihat_surat_penagihan_kepala_cabang");
+Route::post('/sistem-keuangan-barang/kepala-cabang/lihat-detail-surat-penagihan-kepala-cabang-proses', "KeuanganBarang@lihat_detail_surat_penagihan_kepala_cabang_proses");
+
+
+//----------------------------------------------------------------------------------------------------------------//
+
+
+/*################################################################################################################*/
 
 
 
