@@ -79,7 +79,7 @@
                 </h3>
               </div>
               <div class="text-center p-a-md">
-                <a href="#" class="btn btn-block btn-lg success">Masuk</a>
+                <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/gudang/dashboard" class="btn btn-block btn-lg success">Masuk</a>
               </div>
             </div>
           </div>
@@ -94,7 +94,7 @@
               </div>
               
               <div class="text-center p-a-md">
-                <a href="#" class="btn btn-block btn-lg danger">Masuk</a>
+                <a href="{{env('APP_URL')}}/sistem-pelaporan-barang/korlap/dashboard" class="btn btn-block btn-lg danger">Masuk</a>
               </div>
             </div>
           </div>
@@ -108,7 +108,7 @@
                 </h3>
               </div>
               <div class="text-center p-a-md">
-                <a href="#" class="btn btn-block btn-lg warning">Masuk</a>
+                <a href="{{env('APP_URL')}}/sistem-keuangan-barang/keuangan/dashboard" class="btn btn-block btn-lg warning">Masuk</a>
               </div>
             </div>
           </div>
