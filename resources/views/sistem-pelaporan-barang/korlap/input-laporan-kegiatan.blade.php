@@ -202,7 +202,7 @@
         
       </div>
       <div class="col-sm-12">
-         <a href="http://bella.dev/sistem-pelaporan-barang/korlap/input-laporan-kegiatan/lihat-laporan-kegiatan"><button class="btn btn-block danger">Lihat laporan kegiatan</button></a>
+         <a href="{{env('APP_URL')}}/sistem-pelaporan-barang/korlap/input-laporan-kegiatan/lihat-laporan-kegiatan"><button class="btn btn-block danger">Lihat laporan kegiatan</button></a>
       </div>
      
         </br>

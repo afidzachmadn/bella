@@ -86,7 +86,7 @@
         </div>
         <div class="box-divider m-a-0"></div>
         <div class="box-body">
-          <form role="form" class="form-horizontal form-material" id="loginform" action="http://bella.dev/sistem-pengiriman-barang/tu/input-surat-jalan-tu-proses" method="post">
+          <form role="form" class="form-horizontal form-material" id="loginform" action="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/input-surat-jalan-tu-proses" method="post">
           {{ csrf_field() }}
             
 
@@ -137,7 +137,7 @@
         
       </div>
       <div class="col-sm-12">
-         <a href="http://bella.dev/sistem-pengiriman-barang/tu/input-surat-jalan/lihat-surat-jalan"><button class="btn btn-block danger">Lihat surat jalan</button></a>
+         <a href="{{env('APP_URL')}}/sistem-pengiriman-barang/tu/input-surat-jalan/lihat-surat-jalan"><button class="btn btn-block danger">Lihat surat jalan</button></a>
       </div>
      
         </br>
